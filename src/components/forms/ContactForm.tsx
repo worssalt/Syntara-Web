@@ -34,8 +34,8 @@ const formSchema = z.object({
   company: z.string().min(2, {
     message: "El nombre de la empresa es requerido.",
   }),
-  service: z.string({
-    required_error: "Selecciona un tipo de servicio.",
+  service: z.string().min(1, {
+    message: "Selecciona un tipo de servicio.",
   }),
   message: z.string().min(10, {
     message: "Cuéntanos un poco más sobre tu proyecto (min 10 caracteres).",
