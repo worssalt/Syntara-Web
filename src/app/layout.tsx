@@ -9,8 +9,19 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "SYNTARA | Tiendas online y productos digitales",
   description: "Agencia para emprendedores y PYMEs: tiendas online y sitios que convierten. Desarrollo rápido, diseño que vende y soporte accesible.",
+  openGraph: {
+    siteName: "SYNTARA",
+    type: "website",
+    title: "SYNTARA | Tiendas online y productos digitales",
+    description: "Agencia para emprendedores y PYMEs: tiendas online y sitios que convierten.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SYNTARA | Tiendas online y productos digitales",
+    description: "Agencia para emprendedores y PYMEs: tiendas online y sitios que convierten.",
+  },
   icons: {
-    icon: '/logo.png',
+    icon: "/logo.png",
   },
 };
 

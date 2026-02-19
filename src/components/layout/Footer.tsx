@@ -20,8 +20,8 @@ export function Footer() {
             &copy; {new Date().getFullYear()} SYNTARA. Todos los derechos reservados.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-primary transition-colors">Privacidad</a>
-            <a href="#" className="hover:text-primary transition-colors">Términos</a>
+            <a href="/privacidad" className="hover:text-primary transition-colors">Privacidad</a>
+            <a href="/terminos" className="hover:text-primary transition-colors">Términos</a>
           </div>
         </div>
       </div>

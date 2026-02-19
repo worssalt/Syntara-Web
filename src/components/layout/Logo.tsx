@@ -14,7 +14,7 @@ export function Logo({ className }: { className?: string }) {
       </svg>
       <div className="flex flex-col justify-center">
         <span className="font-bold text-2xl tracking-tight text-foreground leading-none">SYNTARA</span>
-        <span className="text-[0.65rem] text-muted-foreground tracking-widest uppercase mt-1">Web Services & Business Systems</span>
+        <span className="text-[0.65rem] text-muted-foreground tracking-widest uppercase mt-1">Servicios Web y Sistemas a Medida</span>
       </div>
     </div>
   )
