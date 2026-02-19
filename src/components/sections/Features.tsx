@@ -17,8 +17,8 @@ const features = [
     gradient: "from-primary/20 to-transparent"
   },
   {
-    title: "Escalabilidad Total",
-    description: "Infraestructura flexible que crece con tu negocio y soporta picos de tráfico durante campañas.",
+    title: "Conversión & Growth",
+    description: "Diseño y optimización orientada a ventas: pruebas A/B, UX que convierte y mejoras continuas para aumentar ingresos.",
     icon: TrendingUp,
     color: "text-accent", // Teal/Indigo
     gradient: "from-accent/20 to-transparent"

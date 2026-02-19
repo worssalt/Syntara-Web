@@ -1,231 +1,267 @@
 # AGENTS.md - Syntara Web Project
 
-This document provides essential information for agentic coding agents working in this repository.
+Essential information for agentic coding agents working in this repository.
 
 ## Project Overview
 
-This is a **Next.js 16** website for SYNTARA, focused on selling digital products and services to entrepreneurs and SMEs (B2C/B2SMB). The project uses React 19, TypeScript, Tailwind CSS v4, and shadcn/ui components. The site is statically exported (`output: 'export'`) and uses Spanish for all UI text.
+**Next.js 16** website for SYNTARA — selling digital products and services to entrepreneurs and SMEs (B2C/B2SMB). Stack: React 19, TypeScript (strict), Tailwind CSS v4, shadcn/ui + Radix primitives, Framer Motion. Statically exported (`output: 'export'`). All UI text is in **Spanish**. The site always renders in dark mode (`className="dark"` hardcoded on `<html>`).
 
-## Build/Lint/Test Commands
+## Commands
 
 ```bash
 # Development server
 npm run dev
 
-# Production build
+# Production build (static export to /out)
 npm run build
 
-# Start production server (after build)
-npm run start
-
-# Lint code
-npm run lint
-
-# Lint specific files
-npm run lint src/components/ui/button.tsx
-```
-
-**Note:** No test framework is currently configured. When adding tests, consider Vitest or Jest.
-
-## Type Checking
-
-```bash
 # TypeScript type check (no emit)
 npx tsc --noEmit
+
+# Lint entire project
+npm run lint
+
+# Lint specific file(s)
+npx eslint src/components/ui/button.tsx
 ```
+
+**Tests:** No test framework is configured. When adding tests, use Vitest (preferred for Next.js/ESM) or Jest. There is no command to run a single test yet.
+
+**CI pipeline** (`.github/workflows/ci.yml`) runs on push/PR to `main`/`develop`:
+1. `npx tsc --noEmit`
+2. `npm run lint`
+3. `npm run build`
+
+Always ensure all three pass before committing.
 
 ## Project Structure
 
 ```
 src/
-├── app/                    # Next.js App Router pages
-│   ├── layout.tsx          # Root layout with Navbar/Footer
-│   ├── page.tsx            # Home page
-│   ├── globals.css         # Global styles & CSS variables
-│   └── [route]/            # Route segments (contact, servicios, etc.)
+├── app/                         # Next.js App Router
+│   ├── layout.tsx               # Root layout: Navbar + Footer, lang="es", className="dark"
+│   ├── page.tsx                 # Home page (server component)
+│   ├── globals.css              # Tailwind v4 @theme block + CSS variable tokens
+│   ├── contacto/page.tsx
+│   ├── nosotros/
+│   │   ├── page.tsx             # Server component with Metadata export
+│   │   └── NosotrosContent.tsx  # Client component for animated content
+│   ├── servicios-web/
+│   │   ├── page.tsx
+│   │   └── ServiciosWebContent.tsx
+│   ├── sistemas-medida/
+│   │   ├── page.tsx
+│   │   └── SistemasMedidaContent.tsx
+│   ├── privacidad/page.tsx
+│   └── terminos/page.tsx
 ├── components/
-│   ├── ui/                 # shadcn/ui primitives (button, input, etc.)
-│   ├── layout/             # Layout components (Navbar, Footer, Logo)
-│   ├── sections/           # Page sections (Hero, Features)
-│   └── forms/              # Form components (ContactForm)
+│   ├── ui/                      # shadcn/ui primitives (button, card, form, input, …)
+│   ├── layout/                  # Navbar, Footer, Logo
+│   ├── sections/                # Page sections: Hero, Features
+│   └── forms/                   # ContactForm (react-hook-form + zod + Web3Forms)
 └── lib/
-    └── utils.ts            # Utility functions (cn helper)
+    └── utils.ts                 # cn() helper (clsx + tailwind-merge)
 ```
 
-## Code Style Guidelines
+## Page Splitting Pattern
 
-### Imports
+Pages that need animations follow a **two-file pattern**:
 
-Order imports as follows, separated by blank lines:
+- `page.tsx` — server component, exports `Metadata`, renders a single `*Content` component
+- `*Content.tsx` — `"use client"` component that uses Framer Motion
 
-1. React/Next.js imports
-2. Third-party libraries (alphabetically)
-3. Internal aliases (`@/components/...`, `@/lib/...`)
-4. Relative imports
+```tsx
+// app/servicios-web/page.tsx  (server component)
+import type { Metadata } from "next"
+import { ServiciosWebContent } from "./ServiciosWebContent"
+
+export const metadata: Metadata = { title: "..." }
+
+export default function Page() {
+  return <ServiciosWebContent />
+}
+```
+
+## Code Style
+
+### Directives & Imports
+
+Place `"use client"` on line 1 when required (no blank line before first import).
+Group imports with a blank line between groups; no semicolons; double quotes.
 
 ```tsx
 "use client"
 
+import { motion } from "framer-motion"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { useState } from "react"
+import { cn } from "@/lib/utils"
 ```
+
+Import order:
+1. React / Next.js (`next/image`, `next/link`, `next/font/google`)
+2. Third-party libraries (alphabetical)
+3. Internal `@/` aliases (components, then lib)
+4. Relative imports (avoid across directories)
+
+Always use `@/` aliases — never relative paths like `../../components`.
 
 ### TypeScript
 
-- **Strict mode is enabled.** All code must pass strict type checking.
-- Use explicit types for function parameters and return values when not obvious.
-- Use `interface` for component props; extend native element props.
-- Use `type` for utility types, unions, and type aliases.
+Strict mode is on. All code must pass `npx tsc --noEmit` with zero errors.
+
+- `interface` for component props, extending native element props when appropriate
+- `type` for unions, utility types, and non-component type aliases
+- Infer form types from Zod schemas: `type FormValues = z.infer<typeof formSchema>`
+- Avoid `any`; use `unknown` + type narrowing
 
 ```tsx
-// Component props interface
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  asChild?: boolean
+export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  variant?: "default" | "outlined"
 }
 ```
 
-### React Conventions
+### React & Components
 
-- **Server Components by default.** Use `"use client"` directive only when needed (hooks, event handlers, browser APIs).
-- Use named exports for components: `export function ComponentName() {}`
-- Use `React.forwardRef` for UI primitives to allow ref forwarding.
-- Set `displayName` on forwardRef components: `Button.displayName = "Button"`
+- **Server Components by default.** Add `"use client"` only when using hooks, event handlers, browser APIs, or Framer Motion.
+- Named exports for all components: `export function Hero() {}`
+- `React.forwardRef` + `displayName` for all shadcn/ui primitives:
 
 ```tsx
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    // ...
-  }
+  ({ className, variant, size, asChild = false, ...props }, ref) => { … }
 )
 Button.displayName = "Button"
 ```
 
 ### Naming Conventions
 
-- **Components:** PascalCase files matching component name (`Button.tsx`, `ContactForm.tsx`)
-- **Functions:** camelCase (`handleSubmit`, `cn`)
-- **Constants:** SCREAMING_SNAKE_CASE for true constants, camelCase for config objects
-- **CSS classes:** Use Tailwind utility classes; no custom CSS classes except in globals.css
-- **Type aliases:** PascalCase (`ButtonProps`, `formSchema`)
+| Target | Convention | Example |
+|---|---|---|
+| Component files | PascalCase | `ContactForm.tsx` |
+| Component functions | PascalCase | `export function ContactForm()` |
+| Utility functions | camelCase | `handleSubmit`, `cn` |
+| True constants | SCREAMING_SNAKE_CASE | `MAX_RETRIES` |
+| Config objects | camelCase | `formSchema` |
+| Type / Interface | PascalCase | `ButtonProps`, `FormValues` |
 
 ### Formatting
 
-- Use double quotes for strings (consistent with Prettier defaults).
-- No semicolons at end of statements (follow existing code).
-- No trailing commas in imports/exports.
-- 2-space indentation.
+- No semicolons
+- Double quotes for strings
+- 2-space indentation
+- No trailing commas in import/export lists
+- ESLint v9 flat config (`eslint.config.mjs`) extends `next/core-web-vitals` + `next/typescript`
 
 ### Styling
 
-- Use Tailwind CSS exclusively for styling.
-- Use the `cn()` utility from `@/lib/utils` for conditional class merging.
-- Use CSS variables for theming (defined in `globals.css`).
-- Use Tailwind's `cn()` pattern for variant-based components:
+- **Tailwind CSS v4 exclusively.** No custom CSS except tokens/keyframes in `globals.css`.
+- Use `cn()` from `@/lib/utils` for conditional/merged classes.
+- All theme tokens are CSS variables; reference them via semantic names:
 
 ```tsx
-className={cn(buttonVariants({ variant, size, className }))}
+// Good — semantic token
+className="bg-primary text-primary-foreground"
+// Avoid — raw color value
+className="bg-[#00B7C7]"
+```
+
+Brand colors (defined in `globals.css`):
+- Primary: `hsl(187 100% 39%)` → `#00B7C7` (SYNTARA Cyan)
+- Accent: `hsl(184 72% 47%)` → `#2ECBD3` (SYNTARA Teal)
+
+Gradient pattern used for CTAs and headings:
+```tsx
+className="bg-gradient-to-r from-primary to-accent"
+className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-indigo-500"
+```
+
+Dark mode is always active via `.dark` on `<html>`. Do not add light-only styles.
+
+### Animations (Framer Motion)
+
+Use Framer Motion only inside `"use client"` components. Standard patterns:
+
+```tsx
+// Entry animation
+<motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+
+// Scroll-triggered (runs once)
+<motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 20 }} viewport={{ once: true }}>
+
+// Staggered list
+transition={{ delay: index * 0.1 }}
 ```
 
 ### Forms & Validation
 
-- Use `react-hook-form` with `zod` for form handling and validation.
-- Define Zod schemas at the top of the file:
+- `react-hook-form` + `zod` + `zodResolver` for all forms.
+- Define the Zod schema at the top of the file; infer the type from it.
+- All validation messages in Spanish.
 
 ```tsx
 const formSchema = z.object({
-  name: z.string().min(2, { message: "..." }),
-  email: z.string().email({ message: "..." }),
+  nombre: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres" }),
+  email: z.string().email({ message: "Ingresa un correo electrónico válido" }),
 })
+type FormValues = z.infer<typeof formSchema>
 ```
 
-- Infer types from schemas: `z.infer<typeof formSchema>`
-
 ### Error Handling
-
-- Use `try/catch` for async operations.
-- Display user-friendly error messages in Spanish.
-- Log errors to console with `console.error()`.
 
 ```tsx
 try {
   const response = await fetch(url)
-  if (!response.ok) throw new Error(data.message || "Error message")
+  if (!response.ok) throw new Error(data.message || "Error del servidor")
 } catch (error) {
   console.error(error)
-  setErrorMessage(error instanceof Error ? error.message : "Ha ocurrido un error inesperado")
+  setError(error instanceof Error ? error.message : "Ha ocurrido un error inesperado")
+} finally {
+  setIsLoading(false)
 }
-```
-
-### Client Components
-
-Mark components with `"use client"` when they use:
-- React hooks (`useState`, `useEffect`, etc.)
-- Event handlers (`onClick`, `onChange`, etc.)
-- Browser APIs (`window`, `localStorage`, etc.)
-- Framer Motion animations
-- Form libraries with client-side state
-
-### shadcn/ui Components
-
-- This project uses shadcn/ui with Radix primitives.
-- Components are in `src/components/ui/`.
-- Use `components.json` configuration for adding new components.
-- When adding new shadcn components: `npx shadcn@latest add <component>`
-
-### Path Aliases
-
-- `@/*` maps to `./src/*`
-- Always use `@/` imports for internal modules, never relative paths across directories.
-
-```tsx
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
 ```
 
 ## Environment Variables
 
-- Environment variables must be prefixed with `NEXT_PUBLIC_` for client-side access.
-- Example: `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`
+Client-side variables must use the `NEXT_PUBLIC_` prefix.
 
-## Static Export Considerations
+| Variable | Purpose |
+|---|---|
+| `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` | Form submission via Web3Forms |
+| `NEXT_PUBLIC_GA_ID` | (optional) Google Analytics 4 measurement ID (p.ej. G-XXXXXXXXXX) |
 
-- The project uses `output: 'export'` for static hosting.
-- Images are unoptimized (`images: { unoptimized: true }`).
-- No server-side API routes are available.
-- Use external services (Web3Forms, Resend) for form submissions.
+Copy `.env.example` to `.env.local` for local development. `ContactForm.tsx` gracefully simulates success when the key is absent.
 
-## UI Language
+## Static Export Constraints
 
-All user-facing text must be in **Spanish**:
-
-```tsx
-<Button>Enviar Solicitud</Button>
-<p>Cuéntanos un poco más sobre tu proyecto</p>
-```
+- `output: 'export'` in `next.config.ts` — no Node.js server at runtime.
+- No API routes (`app/api/` routes will break the build).
+- `next/image` requires `unoptimized: true` (already set).
+- Use external services for any server-side logic (Web3Forms for email, etc.).
 
 ## Common Tasks
 
-### Adding a New Page
+### Add a New Page (with animations)
 
-1. Create directory in `src/app/[route]/`
-2. Add `page.tsx` with default export component
-3. Import and compose section components
+1. `mkdir src/app/[route]`
+2. Create `page.tsx` — server component exporting `Metadata` + rendering `*Content`
+3. Create `*Content.tsx` — `"use client"` component with Framer Motion layout
+4. Add nav link in `src/components/layout/Navbar.tsx` if needed
 
-### Adding a New Section
+### Add a New Section Component
 
-1. Create in `src/components/sections/SectionName.tsx`
-2. Export as named function
-3. Import and use in relevant page
+1. Create `src/components/sections/SectionName.tsx` as a server component (default)
+2. Use named export: `export function SectionName() {}`
+3. Import in the relevant page or content component
 
-### Adding UI Components
+### Add a shadcn/ui Component
 
 ```bash
 npx shadcn@latest add <component-name>
 ```
+
+New components land in `src/components/ui/`. Do not manually edit shadcn primitives unless necessary; prefer wrapping them.

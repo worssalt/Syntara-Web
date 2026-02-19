@@ -24,7 +24,7 @@ export function Navbar() {
         </Link>
         <div className="hidden md:flex items-center gap-8">
           <Link href="/servicios-web" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-            Servicios Web
+            Servicios
           </Link>
           <Link href="/sistemas-medida" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
             Sistemas

@@ -6,7 +6,8 @@ import { Rocket, ShieldCheck, Palette, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-
+import { CaseStudy } from '@/components/sections/CaseStudy'
+import { Testimonials } from '@/components/sections/Testimonials'
 const benefits = [
   {
     title: "Rendimiento SEO",
@@ -40,15 +41,15 @@ export function ServiciosWebContent() {
               className="flex-1 text-center md:text-left"
             >
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-                Tiendas online y sitios que <span className="text-primary">convierten</span>
+                Productos digitales: <span className="text-primary">webs, apps y tiendas</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0">
-                Velocidad, seguridad y diseño pensado para vender — paquetes para emprendedores y PYMEs.
+                Diseño y desarrollo orientado a resultados — desde MVPs hasta plataformas de venta y aplicaciones a medida.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <Link href="/contacto">
                   <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8">
-                    Empezar mi tienda
+                    Solicitar presupuesto
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
@@ -115,6 +116,44 @@ export function ServiciosWebContent() {
               </motion.div>
             ))}
           </div>
+
+          {/* Packages Section */}
+          <section className="mt-16">
+            <h3 className="text-2xl font-bold mb-6 text-center">Paquetes rápidos para empezar</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <Card className="p-6 text-center">
+                <CardHeader>
+                  <CardTitle>Starter</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">Landing + setup básico · Ideal para validar idea</p>
+                  <div className="text-lg font-semibold">Desde €1.500</div>
+                </CardContent>
+              </Card>
+              <Card className="p-6 text-center">
+                <CardHeader>
+                  <CardTitle>Growth</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">Tienda / Webapp completa · Integraciones y SEO</p>
+                  <div className="text-lg font-semibold">Desde €4.500</div>
+                </CardContent>
+              </Card>
+              <Card className="p-6 text-center">
+                <CardHeader>
+                  <CardTitle>Scale</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">Producto a medida · Soporte y roadmap continuo</p>
+                  <div className="text-lg font-semibold">Presupuesto a medida</div>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
+          {/* Case study + testimonials */}
+          <CaseStudy />
+          <Testimonials />
         </div>
       </section>
 
@@ -129,14 +168,14 @@ export function ServiciosWebContent() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Lanza tu tienda hoy
+              Lanza tu producto digital hoy
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
-              No dejes que una web lenta frene tus ventas.
+              No dejes que una web lenta o una idea sin ejecución frenen tu crecimiento.
             </p>
             <Link href="/contacto">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 shadow-lg shadow-primary/20">
-                Pedir presupuesto
+                Solicitar presupuesto
               </Button>
             </Link>
           </motion.div>

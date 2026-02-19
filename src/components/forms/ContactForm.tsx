@@ -36,6 +36,8 @@ const formSchema = z.object({
   service: z.string().min(1, {
     message: "Selecciona un tipo de servicio.",
   }),
+  budget: z.string().optional(),
+  timeline: z.string().optional(),
   message: z.string().min(10, {
     message: "Cuéntanos un poco más sobre tu proyecto (min 10 caracteres).",
   }),
@@ -56,6 +58,8 @@ export function ContactForm() {
       email: "",
       company: "",
       service: "",
+      budget: "",
+      timeline: "",
       message: "",
       consent: false,
     },
@@ -90,6 +94,18 @@ export function ContactForm() {
         // Simulación de envío exitoso si no hay clave (para no romper en desarrollo/demo)
         console.log("Simulando envío de formulario (Falta NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY)", formData)
         await new Promise((resolve) => setTimeout(resolve, 1500))
+      }
+
+      // Track conversion (if GA enabled)
+      try {
+        if (typeof window !== "undefined") {
+          ;(window as unknown as { gtag?: (...args: unknown[]) => void }).gtag?.("event", "generate_lead", {
+            event_category: "engagement",
+            event_label: formData.service || "contact_form",
+          })
+        }
+      } catch {
+        // ignore
       }
 
       setIsSuccess(true)
@@ -178,14 +194,47 @@ export function ContactForm() {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
+                    <SelectItem value="website">Sitio web</SelectItem>
                     <SelectItem value="ecommerce">Tienda online (E‑commerce)</SelectItem>
-                    <SelectItem value="landing">Landing / Producto digital</SelectItem>
-                    <SelectItem value="personal">Sitio personal / Portafolio</SelectItem>
+                    <SelectItem value="app">App web/móvil</SelectItem>
+                    <SelectItem value="saas">Producto digital / SaaS</SelectItem>
+                    <SelectItem value="mvp">MVP / PoC</SelectItem>
+                    <SelectItem value="integration">Migración / Integración</SelectItem>
                     <SelectItem value="maintenance">Mantenimiento y soporte mensual</SelectItem>
                     <SelectItem value="marketing">Marketing & CRO</SelectItem>
                     <SelectItem value="other">Otro</SelectItem>
                   </SelectContent>
                 </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <FormField
+            control={form.control}
+            name="budget"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Presupuesto aproximado (opcional)</FormLabel>
+                <FormControl>
+                  <Input placeholder="p.ej. €1.500 - €5.000" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="timeline"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Plazo deseado (opcional)</FormLabel>
+                <FormControl>
+                  <Input placeholder="p.ej. 4-6 semanas" {...field} />
+                </FormControl>
                 <FormMessage />
               </FormItem>
             )}
