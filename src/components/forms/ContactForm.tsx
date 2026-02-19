@@ -29,11 +29,9 @@ const formSchema = z.object({
     message: "El nombre debe tener al menos 2 caracteres.",
   }),
   email: z.string().email({
-    message: "Introduce un email corporativo válido.",
+    message: "Introduce un email válido.",
   }),
-  company: z.string().min(2, {
-    message: "El nombre de la empresa es requerido.",
-  }),
+  company: z.string().optional(),
   service: z.string().min(1, {
     message: "Selecciona un tipo de servicio.",
   }),
@@ -104,7 +102,7 @@ export function ContactForm() {
         </div>
         <h3 className="text-2xl font-bold mb-2">¡Mensaje Recibido!</h3>
         <p className="text-muted-foreground mb-6">
-          Gracias por contactar con SYNTARA. Nuestro equipo comercial revisará tu solicitud y te contactará en menos de 24 horas.
+          Gracias por tu mensaje. Te responderemos en menos de 24 horas.
         </p>
         <Button onClick={() => setIsSuccess(false)} variant="outline">
           Enviar otro mensaje
@@ -135,9 +133,9 @@ export function ContactForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email Corporativo</FormLabel>
+                <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="juan@empresa.com" {...field} />
+                  <Input placeholder="juan@ejemplo.com" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -151,9 +149,9 @@ export function ContactForm() {
             name="company"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Empresa</FormLabel>
+                <FormLabel>Negocio (opcional)</FormLabel>
                 <FormControl>
-                  <Input placeholder="Nombre de tu empresa" {...field} />
+                  <Input placeholder="Nombre de tu tienda/negocio (opcional)" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -172,9 +170,11 @@ export function ContactForm() {
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="web">Desarrollo Web / E-commerce</SelectItem>
-                    <SelectItem value="systems">Sistemas a Medida (ERP/CRM)</SelectItem>
-                    <SelectItem value="consulting">Consultoría Tecnológica</SelectItem>
+                    <SelectItem value="ecommerce">Tienda online (E‑commerce)</SelectItem>
+                    <SelectItem value="landing">Landing / Producto digital</SelectItem>
+                    <SelectItem value="personal">Sitio personal / Portafolio</SelectItem>
+                    <SelectItem value="maintenance">Mantenimiento y soporte mensual</SelectItem>
+                    <SelectItem value="marketing">Marketing & CRO</SelectItem>
                     <SelectItem value="other">Otro</SelectItem>
                   </SelectContent>
                 </Select>

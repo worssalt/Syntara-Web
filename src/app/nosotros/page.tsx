@@ -1,7 +1,7 @@
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Lightbulb, Search, TrendingUp, ArrowRight, Handshake } from 'lucide-react'
+import { Lightbulb, Search, TrendingUp, Handshake } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -48,12 +48,11 @@ export default function NosotrosPage() {
               Más que proveedores
             </div>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-8 max-w-4xl mx-auto">
-              Tu Partner Tecnológico <br />
-              <span className="text-primary">Estratégico</span>
+              Tu aliado para <br />
+              <span className="text-primary">emprendedores y PYMEs</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-10">
-              En SYNTARA no solo escribimos código. Entendemos tu negocio y nos convertimos en 
-              el aliado técnico que necesitas para escalar, optimizar y liderar tu mercado.
+              Ayudamos a emprendedores y PYMEs a lanzar y escalar negocios digitales. Diseño, desarrollo y soporte pensados para aumentar ventas y reducir costes operativos.
             </p>
           </motion.div>
         </div>
@@ -111,7 +110,7 @@ export default function NosotrosPage() {
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   Creemos en un futuro donde la tecnología no es una barrera, sino un acelerador. 
                   Donde la seguridad y la experiencia de usuario conviven en perfecta armonía. 
-                  Nuestro objetivo es democratizar el acceso a software de nivel enterprise para empresas ambiciosas.
+                  Nuestro objetivo es facilitar herramientas digitales accesibles y escalables para emprendedores y pequeñas empresas.
                 </p>
               </div>
               <div className="flex-1 flex justify-center">
@@ -143,11 +142,11 @@ export default function NosotrosPage() {
               Construyamos el futuro juntos
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
-              Estamos listos para ser el socio tecnológico que tu empresa necesita.
+              Estamos listos para ayudarte a lanzar y vender en línea.
             </p>
             <Link href="/contacto">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 shadow-lg shadow-primary/20">
-                Inicia tu Transformación Digital
+                Comenzar mi proyecto
               </Button>
             </Link>
           </motion.div>

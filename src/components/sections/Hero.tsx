@@ -12,24 +12,24 @@ export function Hero() {
 
       <div className="container relative z-10 px-6 mx-auto text-center">
         <div className="inline-block mb-6 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/10 text-primary text-sm font-medium animate-fade-in-up">
-          Innovación Digital B2B
+          Para emprendedores y PYMEs
         </div>
         
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-6 leading-tight">
-          Soluciones Tecnológicas <br className="hidden md:block" />
+          Tu tienda online <br className="hidden md:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-indigo-500">
-            Rentables y Seguras
+            lista para vender en días
           </span>
         </h1>
         
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-          Transformamos tu empresa con desarrollo web de alto rendimiento y sistemas a medida diseñados para escalar y proteger tus activos digitales.
+          Diseño y desarrollo rápido, asequible y optimizado para convertir visitantes en clientes.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link href="/contacto">
             <Button size="lg" className="min-w-[180px] h-12 text-base bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/25">
-              Solicitar Consultoría
+              Empezar mi tienda
             </Button>
           </Link>
           <Link href="/servicios-web">

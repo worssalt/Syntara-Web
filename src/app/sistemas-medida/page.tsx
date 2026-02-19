@@ -2,11 +2,10 @@
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Database, Lock, Server, Code2, LayoutDashboard, ArrowRight, CheckCircle } from 'lucide-react'
+import { Database, Lock, Code2, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { cn } from '@/lib/utils'
 
 export default function SistemasMedidaPage() {
   return (
@@ -22,21 +21,20 @@ export default function SistemasMedidaPage() {
             className="text-center max-w-4xl mx-auto"
           >
             <div className="inline-block mb-6 px-4 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-sm font-medium">
-              Soluciones Enterprise
+              Soluciones a medida para PYMEs
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8">
-              ERPs y Software de <br/>
+              Sistemas a medida <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                Gestión B2B
+                para PYMEs
               </span>
             </h1>
             <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl mx-auto">
-              Centraliza operaciones, automatiza procesos y escala tu negocio con sistemas a medida. 
-              Arquitectura robusta diseñada para el crecimiento.
+              Centraliza operaciones, automatiza tareas y simplifica la gestión de tu negocio. Soluciones a medida pensadas para PYMEs y startups.
             </p>
             <Link href="/contacto">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 h-12 shadow-lg shadow-primary/20">
-                Inicia tu Transformación Digital
+                Pedir presupuesto
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
@@ -166,14 +164,14 @@ export default function SistemasMedidaPage() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              ¿Tu empresa necesita una solución a medida?
+              ¿Necesitas una solución a medida para tu negocio?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
               Analizamos tus procesos y diseñamos la herramienta exacta que necesitas.
             </p>
             <Link href="/contacto">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 shadow-lg shadow-primary/20">
-                Inicia tu Transformación Digital
+                Solicitar presupuesto
               </Button>
             </Link>
           </motion.div>

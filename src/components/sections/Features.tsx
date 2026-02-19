@@ -18,7 +18,7 @@ const features = [
   },
   {
     title: "Escalabilidad Total",
-    description: "Arquitecturas cloud-native diseñadas para crecer con tu empresa, soportando picos de alta demanda sin comprometer el rendimiento ni la estabilidad.",
+    description: "Infraestructura flexible que crece con tu negocio y soporta picos de tráfico durante campañas.",
     icon: TrendingUp,
     color: "text-accent", // Teal/Indigo
     gradient: "from-accent/20 to-transparent"

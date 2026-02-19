@@ -20,7 +20,7 @@ const benefits = [
   },
   {
     title: "Diseño UI/UX Premium",
-    description: "Estética corporativa de alto nivel. Experiencias de usuario fluidas que transmiten profesionalismo y confianza.",
+    description: "Diseño pensado para convertir: plantillas optimizadas para ventas y confianza del cliente.",
     icon: Palette,
   },
 ]
@@ -40,16 +40,15 @@ export default function ServiciosWebPage() {
               className="flex-1 text-center md:text-left"
             >
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-                Desarrollo de Sitios <span className="text-primary">Jamstack</span>
+                Tiendas online y sitios que <span className="text-primary">convierten</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0">
-                Velocidad, seguridad y escalabilidad sin límites para tu empresa. 
-                Transformamos tu presencia digital con tecnología moderna.
+                Velocidad, seguridad y diseño pensado para vender — paquetes para emprendedores y PYMEs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <Link href="/contacto">
                   <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8">
-                    Inicia tu Transformación Digital
+                    Empezar mi tienda
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
@@ -88,7 +87,7 @@ export default function ServiciosWebPage() {
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-4">¿Por qué elegir Jamstack?</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              La arquitectura moderna que redefine el estándar de la web corporativa.
+              Arquitectura moderna que acelera carga y conversiones para tiendas y negocios online.
             </p>
           </motion.div>
 
@@ -131,14 +130,14 @@ export default function ServiciosWebPage() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Lleva tu empresa al siguiente nivel
+              Lanza tu tienda hoy
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
-              No dejes que una web lenta o insegura frene tu crecimiento.
+              No dejes que una web lenta frene tus ventas.
             </p>
             <Link href="/contacto">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 shadow-lg shadow-primary/20">
-                Inicia tu Transformación Digital
+                Pedir presupuesto
               </Button>
             </Link>
           </motion.div>
