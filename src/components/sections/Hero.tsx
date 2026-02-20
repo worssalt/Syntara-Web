@@ -26,14 +26,14 @@ export function Hero() {
           Diseño, desarrollo y soporte para sitios, tiendas y aplicaciones — entregas rápidas y foco en resultados.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Link href="/contacto">
-            <Button size="lg" className="min-w-[180px] h-12 text-base bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/25">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-2xl mx-auto">
+          <Link href="/contacto" className="w-full sm:w-auto">
+            <Button size="lg" className="w-full sm:w-auto min-w-0 sm:min-w-[180px] h-12 text-base bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/25 whitespace-normal sm:whitespace-nowrap">
               Comenzar mi proyecto
             </Button>
           </Link>
-          <Link href="/servicios-web">
-            <Button variant="outline" size="lg" className="min-w-[180px] h-12 text-base group border-primary/20 hover:border-primary/50 hover:bg-primary/5">
+          <Link href="/servicios-web" className="w-full sm:w-auto">
+            <Button variant="outline" size="lg" className="w-full sm:w-auto min-w-0 sm:min-w-[180px] h-12 text-base group border-primary/20 hover:border-primary/50 hover:bg-primary/5 whitespace-normal sm:whitespace-nowrap">
               Ver Servicios
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>

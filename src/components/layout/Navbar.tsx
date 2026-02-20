@@ -1,19 +1,24 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { Button } from '@/components/ui/button'
+"use client"
+
+import { useState } from "react"
+import Link from "next/link"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
 
 export function Navbar() {
+  const [open, setOpen] = useState(false)
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
         <Link href="/" className="hover:opacity-90 transition-opacity">
           <div className="flex items-center gap-2">
-            <Image 
-              src="/logo.png" 
-              width={0} 
-              height={0} 
+            <Image
+              src="/logo.png"
+              width={0}
+              height={0}
               sizes="100vw"
-              alt="SYNTARA Logo" 
+              alt="SYNTARA Logo"
               className="w-auto h-10 md:h-14"
             />
             <div className="flex flex-col justify-center">
@@ -22,6 +27,7 @@ export function Navbar() {
             </div>
           </div>
         </Link>
+
         <div className="hidden md:flex items-center gap-8">
           <Link href="/servicios-web" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
             Servicios
@@ -38,7 +44,43 @@ export function Navbar() {
             </Button>
           </Link>
         </div>
+
+        {/* Mobile menu button */}
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            type="button"
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
+            aria-label={open ? "Cerrar menú" : "Abrir menú"}
+            onClick={() => setOpen(!open)}
+            className="p-2 rounded-md bg-muted/10 hover:bg-muted/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
+            {open ? (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile panel */}
+      {open && (
+        <div id="mobile-navigation" className="md:hidden bg-background/95 border-t border-border/50">
+          <div className="container mx-auto px-6 py-4 flex flex-col gap-3">
+            <Link href="/servicios-web" className="text-base font-medium text-foreground/90 hover:text-primary">Servicios</Link>
+            <Link href="/sistemas-medida" className="text-base font-medium text-foreground/90 hover:text-primary">Sistemas</Link>
+            <Link href="/nosotros" className="text-base font-medium text-foreground/90 hover:text-primary">Nosotros</Link>
+            <Link href="/contacto" className="mt-2">
+              <Button className="w-full bg-gradient-to-r from-primary to-accent text-white">Contacto</Button>
+            </Link>
+          </div>
+        </div>
+      )}
     </nav>
   )
 }

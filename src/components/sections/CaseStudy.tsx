@@ -19,7 +19,7 @@ export function CaseStudy() {
             </ul>
             <Link href="/contacto" className="inline-block bg-primary text-primary-foreground px-6 py-3 rounded-md shadow-lg hover:opacity-90">Ver caso / Solicitar proyecto</Link>
           </div>
-          <div className="relative w-full h-64 rounded-xl overflow-hidden border border-border/50 bg-muted/30">
+          <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-border/50 bg-muted/30">
             <Image src="/images/dashboard.png" alt="Case study screenshot" fill className="object-cover" />
           </div>
         </div>
