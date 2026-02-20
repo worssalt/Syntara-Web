@@ -54,7 +54,11 @@ const useFormField = () => {
 
   const fieldState = getFieldState(fieldContext.name, formState)
 
-  const { id } = itemContext
+  // Use a deterministic id derived from the field name to avoid hydration
+  // mismatches caused by non-deterministic ids across server/client.
+  const nameString = String(fieldContext.name)
+  const normalized = nameString.replace(/[^a-zA-Z0-9-_]/g, "-")
+  const id = `field-${normalized}`
 
   return {
     id,
