@@ -117,39 +117,6 @@ export function ServiciosWebContent() {
             ))}
           </div>
 
-          {/* Packages Section */}
-          <section className="mt-16">
-            <h3 className="text-2xl font-bold mb-6 text-center">Paquetes rápidos para empezar</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Card className="p-6 text-center">
-                <CardHeader>
-                  <CardTitle>Starter</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">Landing + setup básico · Ideal para validar idea</p>
-                  <div className="text-lg font-semibold">Desde €1.500</div>
-                </CardContent>
-              </Card>
-              <Card className="p-6 text-center">
-                <CardHeader>
-                  <CardTitle>Growth</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">Tienda / Webapp completa · Integraciones y SEO</p>
-                  <div className="text-lg font-semibold">Desde €4.500</div>
-                </CardContent>
-              </Card>
-              <Card className="p-6 text-center">
-                <CardHeader>
-                  <CardTitle>Scale</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">Producto a medida · Soporte y roadmap continuo</p>
-                  <div className="text-lg font-semibold">Presupuesto a medida</div>
-                </CardContent>
-              </Card>
-            </div>
-          </section>
 
           {/* Case study + testimonials */}
           <CaseStudy />
