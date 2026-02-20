@@ -30,7 +30,7 @@ export function Features() {
     <section className="py-24 bg-muted/10 relative">
       <div className="container px-6 mx-auto">
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
+          <h2 className="text-3xl md:text-5xl font-bold text-white">
             Por qué elegir SYNTARA
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
