@@ -21,9 +21,20 @@ export const metadata: Metadata = {
     title: "SYNTARA | Productos digitales y servicios",
     description: "Sitios, apps y productos digitales para emprendedores y PYMEs.",
   },
+  // favicons and manifest generated from /public
   icons: {
-    icon: "/logo.png",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-96x96.png", sizes: "96x96" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+    other: [
+      { rel: "manifest", url: "/site.webmanifest" },
+    ],
   },
+  manifest: "/site.webmanifest",
 };
 // Optional Google Analytics (define NEXT_PUBLIC_GA_ID to enable)
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "";

@@ -34,8 +34,8 @@ export function Testimonials() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {items.map((it, i) => (
-            <Card key={i} className="p-6 bg-card/60 border-border/40">
+          {items.map((it) => (
+            <Card key={it.name} className="p-6 bg-card/60 border-border/40">
               <CardHeader>
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary">
                   <Quote className="h-5 w-5" />

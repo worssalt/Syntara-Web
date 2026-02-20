@@ -39,8 +39,8 @@ export function Features() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <Card key={index} className="bg-card/40 backdrop-blur-sm border-border/50 hover:border-primary/40 transition-all duration-300 group overflow-hidden">
+          {features.map((feature) => (
+            <Card key={feature.title} className="bg-card/40 backdrop-blur-sm border-border/50 hover:border-primary/40 transition-all duration-300 group overflow-hidden">
               <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity rounded-bl-full blur-2xl`} />
               
               <CardHeader>

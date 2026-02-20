@@ -47,16 +47,15 @@ export function SistemasMedidaContent() {
         <div className="container px-6 mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
             className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-3 gap-6 auto-rows-[minmax(180px,auto)]"
           >
             {/* Item 1: Secure Architecture */}
             <motion.div
               className="md:col-span-2 md:row-span-2"
               initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1 }}
             >
               <Card className="h-full bg-gradient-to-br from-card to-card/50 border-primary/20 relative overflow-hidden group">
@@ -95,8 +94,7 @@ export function SistemasMedidaContent() {
             <motion.div
               className="md:row-span-2 relative group overflow-hidden rounded-xl border border-border/50 bg-card"
               initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
             >
               <div className="absolute inset-0 bg-muted/40 flex flex-col items-center justify-center p-6 text-center z-20 group-hover:bg-muted/30 transition-colors">
@@ -119,8 +117,7 @@ export function SistemasMedidaContent() {
             <motion.div
               className="md:col-span-2 relative group overflow-hidden rounded-xl border border-border/50 bg-card"
               initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3 }}
             >
               <Image
@@ -135,8 +132,7 @@ export function SistemasMedidaContent() {
             <motion.div
               className="bg-card border border-border/50 rounded-xl relative overflow-hidden group"
               initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4 }}
             >
               <Image
@@ -156,8 +152,7 @@ export function SistemasMedidaContent() {
         <div className="container px-6 mx-auto relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
