@@ -72,10 +72,10 @@ export function Navbar() {
       {open && (
         <div id="mobile-navigation" className="md:hidden bg-background/95 border-t border-border/50">
           <div className="container mx-auto px-6 py-4 flex flex-col gap-3">
-            <Link href="/servicios-web" className="text-base font-medium text-foreground/90 hover:text-primary">Servicios</Link>
-            <Link href="/sistemas-medida" className="text-base font-medium text-foreground/90 hover:text-primary">Sistemas</Link>
-            <Link href="/nosotros" className="text-base font-medium text-foreground/90 hover:text-primary">Nosotros</Link>
-            <Link href="/contacto" className="mt-2">
+            <Link href="/servicios-web" onClick={() => setOpen(false)} className="text-base font-medium text-foreground/90 hover:text-primary">Servicios</Link>
+            <Link href="/sistemas-medida" onClick={() => setOpen(false)} className="text-base font-medium text-foreground/90 hover:text-primary">Sistemas</Link>
+            <Link href="/nosotros" onClick={() => setOpen(false)} className="text-base font-medium text-foreground/90 hover:text-primary">Nosotros</Link>
+            <Link href="/contacto" onClick={() => setOpen(false)} className="mt-2">
               <Button className="w-full bg-gradient-to-r from-primary to-accent text-white">Contacto</Button>
             </Link>
           </div>
