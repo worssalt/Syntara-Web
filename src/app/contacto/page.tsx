@@ -23,7 +23,7 @@ export default function ContactoPage() {
             Hablemos de tu <span className="text-primary">Próximo Proyecto</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Estamos listos para escuchar tus desafíos y convertirlos en soluciones tecnológicas.
+            Estamos listos para escuchar tus peticiones y convertirlas en soluciones tecnológicas.
           </p>
         </div>
       </section>
@@ -43,8 +43,8 @@ export default function ContactoPage() {
                     </div>
                     <div>
                       <h3 className="font-medium text-foreground">Email</h3>
-                      <p className="text-muted-foreground">hola@syntara.com</p>
-                      <p className="text-muted-foreground">soporte@syntara.com</p>
+                      <p className="text-muted-foreground">hola@syntara.biz</p>
+                      <p className="text-muted-foreground"></p>
                     </div>
                   </div>
                   
@@ -54,8 +54,8 @@ export default function ContactoPage() {
                     </div>
                     <div>
                       <h3 className="font-medium text-foreground">Teléfono</h3>
-                      <p className="text-muted-foreground">+34 900 000 000</p>
-                      <p className="text-sm text-muted-foreground mt-1">Lunes a Viernes, 9:00 - 18:00</p>
+                      <p className="text-muted-foreground">+51 950796453</p>
+                      <p className="text-sm text-muted-foreground mt-1">Lunes a Sabado, 9:00 - 18:00</p>
                     </div>
                   </div>
 
@@ -66,8 +66,8 @@ export default function ContactoPage() {
                     <div>
                       <h3 className="font-medium text-foreground">Oficinas Centrales</h3>
                       <p className="text-muted-foreground">
-                        Paseo de la Castellana, 100<br />
-                        28046 Madrid, España
+                        La Libertad, Trujillo<br />
+                        13001 Trujillo, Perú
                       </p>
                     </div>
                   </div>

@@ -17,8 +17,8 @@ const features = [
     gradient: "from-primary/20 to-transparent"
   },
   {
-    title: "Conversión & Growth",
-    description: "Diseño y optimización orientada a ventas: pruebas A/B, UX que convierte y mejoras continuas para aumentar ingresos.",
+    title: "Resultados y Rentabilidad",
+    description: "Diseñamos interfaces estratégicas pensadas para vender. Guiamos a tus visitantes para transformar cada clic en un cliente real y aumentar tus ingresos.",
     icon: TrendingUp,
     color: "text-accent", // Teal/Indigo
     gradient: "from-accent/20 to-transparent"

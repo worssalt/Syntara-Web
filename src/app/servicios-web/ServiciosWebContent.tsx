@@ -10,18 +10,18 @@ import { CaseStudy } from '@/components/sections/CaseStudy'
 import { Testimonials } from '@/components/sections/Testimonials'
 const benefits = [
   {
-    title: "Rendimiento SEO",
-    description: "Sitios ultrarrápidos que Google ama. Arquitectura Jamstack para tiempos de carga instantáneos y mejor posicionamiento.",
+    title: "Velocidad y Posicionamiento",
+    description: "Sitios ultrarrápidos que a Google le encantan. Usamos tecnología moderna para que tu web cargue al instante y retenga a tus clientes.",
     icon: Rocket,
   },
   {
-    title: "Seguridad Inhackeable",
-    description: "Olvídate de vulnerabilidades. Al no depender de bases de datos expuestas en el frontend, tu sitio es una fortaleza.",
+    title: "Protección Avanzada",
+    description: "Protegemos tu negocio. Desarrollamos con estándares estrictos para blindar tu información y la de tus usuarios contra amenazas digitales.",
     icon: ShieldCheck,
   },
   {
-    title: "Diseño UI/UX Premium",
-    description: "Diseño pensado para convertir: plantillas optimizadas para ventas y confianza del cliente.",
+    title: "Diseño Atractivo y Estratégico",
+    description: "Páginas atractivas y fáciles de usar. Estructuramos cada detalle para generar confianza y convertir a tus visitantes en clientes reales.",
     icon: Palette,
   },
 ]
@@ -44,7 +44,7 @@ export function ServiciosWebContent() {
                 Productos digitales: <span className="text-primary">webs, apps y tiendas</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0">
-                Diseño y desarrollo orientado a resultados — desde MVPs hasta plataformas de venta y aplicaciones a medida.
+                Diseño y desarrollo orientado a resultados — desde proyectos sencillos hasta plataformas de venta y aplicaciones a medida.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <Link href="/contacto">
@@ -84,13 +84,13 @@ export function ServiciosWebContent() {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">¿Por qué elegir Jamstack?</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">¿Por qué usar Tecnología Moderna?</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Arquitectura moderna que acelera carga y conversiones para tiendas y negocios online.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 md:mb-24">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={benefit.title}

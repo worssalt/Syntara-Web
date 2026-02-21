@@ -18,18 +18,18 @@ export function Hero() {
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-6 leading-tight">
           Estrategia, diseño y <br className="hidden md:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-indigo-500">
-            tecnología que funcionan
+            tecnología enfocados al éxito
           </span>
         </h1>
         
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-          Diseño, desarrollo y soporte para sitios, tiendas y aplicaciones — entregas rápidas y foco en resultados.
+          Especialistas en desarrollo de páginas web, e-commerce y sistemas a medida. Optimizamos tu presencia digital con soluciones rentables, desarrollo ágil y resultados medibles.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-2xl mx-auto">
           <Link href="/contacto" className="w-full sm:w-auto">
             <Button size="lg" className="w-full sm:w-auto min-w-0 sm:min-w-[180px] h-12 text-base bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/25 whitespace-normal sm:whitespace-nowrap">
-              Comenzar mi proyecto
+              Iniciar mi transformación
             </Button>
           </Link>
           <Link href="/servicios-web" className="w-full sm:w-auto">
