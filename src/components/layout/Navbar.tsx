@@ -29,13 +29,16 @@ export function Navbar() {
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
-          <Link href="/servicios-web" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+          <Link href="/" className="text-sm md:text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-300">
+            Inicio
+          </Link>
+          <Link href="/servicios-web" className="text-sm md:text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-300">
             Servicios
           </Link>
-          <Link href="/sistemas-medida" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+          <Link href="/sistemas-medida" className="text-sm md:text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-300">
             Sistemas
           </Link>
-          <Link href="/nosotros" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+          <Link href="/nosotros" className="text-sm md:text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-300">
             Nosotros
           </Link>
           <Link href="/contacto">
@@ -72,9 +75,10 @@ export function Navbar() {
       {open && (
         <div id="mobile-navigation" className="md:hidden bg-background/95 border-t border-border/50">
           <div className="container mx-auto px-6 py-4 flex flex-col gap-3">
-            <Link href="/servicios-web" onClick={() => setOpen(false)} className="text-base font-medium text-foreground/90 hover:text-primary">Servicios</Link>
-            <Link href="/sistemas-medida" onClick={() => setOpen(false)} className="text-base font-medium text-foreground/90 hover:text-primary">Sistemas</Link>
-            <Link href="/nosotros" onClick={() => setOpen(false)} className="text-base font-medium text-foreground/90 hover:text-primary">Nosotros</Link>
+            <Link href="/" onClick={() => setOpen(false)} className="text-lg font-medium text-foreground/90 hover:text-primary transition-colors">Inicio</Link>
+            <Link href="/servicios-web" onClick={() => setOpen(false)} className="text-lg font-medium text-foreground/90 hover:text-primary transition-colors">Servicios</Link>
+            <Link href="/sistemas-medida" onClick={() => setOpen(false)} className="text-lg font-medium text-foreground/90 hover:text-primary transition-colors">Sistemas</Link>
+            <Link href="/nosotros" onClick={() => setOpen(false)} className="text-lg font-medium text-foreground/90 hover:text-primary transition-colors">Nosotros</Link>
             <Link href="/contacto" onClick={() => setOpen(false)} className="mt-2">
               <Button className="w-full bg-gradient-to-r from-primary to-accent text-white">Contacto</Button>
             </Link>

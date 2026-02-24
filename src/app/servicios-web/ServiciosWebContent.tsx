@@ -40,7 +40,7 @@ export function ServiciosWebContent() {
               transition={{ duration: 0.5 }}
               className="flex-1 text-center md:text-left"
             >
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight">
                 Productos digitales: <span className="text-primary">webs, apps y tiendas</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0">

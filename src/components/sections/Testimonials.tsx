@@ -5,21 +5,21 @@ export function Testimonials() {
   const items = [
     {
       quote:
-        "SYNTARA lanzó nuestro MVP en 6 semanas y en 3 meses ya estábamos vendiendo online. Rápidos y sin sorpresas.",
-      name: "María López",
-      role: "Fundadora — Tienda Lumen",
+        "SYNTARA lanzó nuestro MVP en 5 semanas y apenas usamos el sistema para nuestro restaurante se notó considerablemente el cambio a mejora.",
+      name: "Karla Pasco Flores",
+      role: "Fundadora — Mr.Frit",
     },
     {
       quote:
-        "Gran atención al detalle: diseño que convierte y despliegue sin incidencias. Recomendables para startups.",
-      name: "Carlos Méndez",
-      role: "Product Manager — AppB2C",
+        "",
+      name: "",
+      role: "",
     },
     {
       quote:
-        "Soporte continuo y roadmap claro. Nuestro comercio ganó 38% más durante la primera campaña.",
-      name: "Ana Ruiz",
-      role: "CPO — Marketly",
+        " ",
+      name: " ",
+      role: " ",
     },
   ]
 

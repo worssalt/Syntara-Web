@@ -15,7 +15,7 @@ export function Footer() {
           />
           <span className="font-bold text-xl tracking-tight text-foreground">SYNTARA</span>
         </div>
-        <div className="flex flex-col md:flex-row items-center gap-6 text-sm text-muted-foreground">
+        <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-sm text-muted-foreground text-center md:text-left">
           <p>
             &copy; {new Date().getFullYear()} SYNTARA. Todos los derechos reservados.
           </p>

@@ -1,11 +1,10 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Database, Lock, Code2, ArrowRight } from "lucide-react"
+import { Zap, ShieldCheck, ArrowRight, Receipt, MessageCircle, CreditCard, Cloud } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 import { motion } from "framer-motion"
+import { SystemMonitor } from "@/components/sections/SystemMonitor"
 
 export function SistemasMedidaContent() {
   return (
@@ -24,13 +23,13 @@ export function SistemasMedidaContent() {
               Soluciones a medida para PYMEs
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8">
-              Sistemas a medida <br />
+              Tu negocio 100% bajo   <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                para PYMEs
+                control y en tiempo real
               </span>
             </h1>
             <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl mx-auto">
-              Centraliza operaciones, automatiza tareas y simplifica la gestión de tu negocio. Soluciones a medida pensadas para PYMEs y startups.
+              Simplificamos tu gestión diaria con sistemas personalizados. Automatiza procesos, reduce errores humanos y toma decisiones rápidas basadas en datos reales.
             </p>
             <Link href="/contacto">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 h-12 shadow-lg shadow-primary/20">
@@ -42,106 +41,134 @@ export function SistemasMedidaContent() {
         </div>
       </section>
 
-      {/* Bento Grid Section */}
-      <section className="py-20 bg-muted/20">
-        <div className="container px-6 mx-auto">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-3 gap-6 auto-rows-[minmax(180px,auto)]"
-          >
-            {/* Item 1: Secure Architecture */}
+      {/* Secure & Scalable Architecture Section */}
+      <section className="py-24 bg-muted/20 relative overflow-hidden">
+        <div className="container px-6 mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+            
+            {/* Left Column: Text & Benefits */}
             <motion.div
-              className="md:col-span-2 md:row-span-2"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1 }}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="space-y-8"
             >
-              <Card className="h-full bg-gradient-to-br from-card to-card/50 border-primary/20 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-3xl rounded-full -mr-32 -mt-32 transition-all group-hover:bg-primary/10" />
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-primary">
-                    <Database className="h-6 w-6" />
-                  </div>
-                  <CardTitle className="text-2xl">Arquitectura Segura y Escalable</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6 relative z-10">
-                  <p className="text-muted-foreground text-lg">
-                    Construimos sobre cimientos sólidos. Priorizamos la integridad de tus datos y la seguridad de acceso desde la primera línea de código.
-                  </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="bg-background/50 p-4 rounded-lg border border-border/50">
-                      <div className="flex items-center gap-2 mb-2 text-foreground font-medium">
-                        <Database className="h-4 w-4 text-accent" />
-                        Base de Datos Relacional
-                      </div>
-                      <p className="text-sm text-muted-foreground">PostgreSQL optimizado para consultas complejas y consistencia de datos ACID.</p>
-                    </div>
-                    <div className="bg-background/50 p-4 rounded-lg border border-border/50">
-                      <div className="flex items-center gap-2 mb-2 text-foreground font-medium">
-                        <Lock className="h-4 w-4 text-accent" />
-                        Autenticación Estricta
-                      </div>
-                      <p className="text-sm text-muted-foreground">Control de acceso basado en roles (RBAC) y autenticación multifactor.</p>
+              <div className="space-y-4">
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                  Infraestructura de Nivel Corporativo para tu PYME
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Construimos sobre cimientos sólidos. Tu sistema no se caerá, no será lento y estará blindado contra ataques.
+                </p>
+              </div>
+
+              <div className="grid gap-6">
+                {/* Box 1: Performance */}
+                <div className="flex gap-4 p-4 rounded-xl border border-border/50 bg-background/50 hover:bg-background/80 transition-colors">
+                  <div className="mt-1">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary">
+                      <Zap className="w-5 h-5" />
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                  <div className="space-y-1">
+                    <h3 className="font-semibold text-lg">Rendimiento Extremo</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      Arquitectura optimizada para que tus reportes tarden milisegundos en cargar, sin importar si tienes cien o miles de registros.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Box 2: Security */}
+                <div className="flex gap-4 p-4 rounded-xl border border-border/50 bg-background/50 hover:bg-background/80 transition-colors">
+                  <div className="mt-1">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-accent/10 text-accent">
+                      <ShieldCheck className="w-5 h-5" />
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    <h3 className="font-semibold text-lg">Seguridad Inquebrantable</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      Cifrado de datos, copias de seguridad automáticas y control de accesos. Tú decides exactamente quién ve qué en tu empresa.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </motion.div>
 
-            {/* Item 2: Code Placeholder */}
+            {/* Right Column: Interactive System Monitor */}
             <motion.div
-              className="md:row-span-2 relative group overflow-hidden rounded-xl border border-border/50 bg-card"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex justify-center lg:justify-end"
             >
-              <div className="absolute inset-0 bg-muted/40 flex flex-col items-center justify-center p-6 text-center z-20 group-hover:bg-muted/30 transition-colors">
-                <Code2 className="h-12 w-12 text-muted-foreground/50 mb-4 group-hover:text-primary/80 transition-colors" />
-                <span className="text-muted-foreground font-medium border border-dashed border-muted-foreground/30 px-3 py-1 rounded-md">
-                  Placeholder: Código Backend
-                </span>
-                <p className="text-xs text-muted-foreground mt-2">Muestra de código limpio y estructurado</p>
-              </div>
-              <div className="absolute inset-0 opacity-10 p-4 font-mono text-[10px] overflow-hidden select-none pointer-events-none">
-                {Array.from({ length: 20 }).map((_, i) => (
-                  <div key={i} className="whitespace-nowrap">
-                    <span className="text-blue-500">function</span> <span className="text-yellow-500">processData</span>(data: <span className="text-green-500">SecureData</span>) {"{"}
+              <SystemMonitor />
+            </motion.div>
+          </div>
+
+          {/* Integrations Section */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-20 pt-10 border-t border-border/40"
+          >
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+              <p className="text-lg font-medium text-muted-foreground px-4 text-center md:text-left md:px-0">
+                Conectamos tu sistema con las herramientas que ya usas
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                {[
+                  {
+                    label: "Facturación Electrónica",
+                    icon: Receipt,
+                    tooltip: "Emite comprobantes legales válidos ante SUNAT/Hacienda directamente desde tu sistema y sin doble trabajo."
+                  },
+                  {
+                    label: "WhatsApp API",
+                    icon: MessageCircle,
+                    tooltip: "Envía notificaciones automáticas, confirmaciones de pedido y recordatorios a tus clientes directo a su celular."
+                  },
+                  {
+                    label: "Pasarelas de Pago",
+                    icon: CreditCard,
+                    tooltip: "Cobra con tarjeta de crédito/débito de forma segura dentro de tu propia plataforma, sin redirigir a sitios externos."
+                  },
+                  {
+                    label: "Google Workspace",
+                    icon: Cloud,
+                    tooltip: "Sincroniza calendarios, correos, contactos y archivos de tu empresa directamente con tu nuevo software."
+                  }
+                ].map((item) => (
+                  <div key={item.label} className="flex flex-col items-center max-w-[160px] md:max-w-none">
+                    <div 
+                      className="group relative flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-slate-800/40 hover:-translate-y-1 hover:border-cyan-400/50 transition-all duration-300 cursor-default"
+                    >
+                      <item.icon className="w-4 h-4 text-cyan-400" />
+                      <span className="text-sm font-medium text-slate-200 group-hover:text-white transition-colors">
+                        {item.label}
+                      </span>
+                      
+                      {/* Desktop Tooltip */}
+                      <div className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-64 p-3 bg-white rounded-md shadow-xl z-50 hidden md:group-hover:block">
+                        {/* Arrow */}
+                        <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45" />
+                        <p className="text-xs text-slate-800 leading-relaxed text-left relative z-10">
+                          {item.tooltip}
+                        </p>
+                      </div>
+                    </div>
+                    {/* Mobile Tooltip */}
+                    <p className="block md:hidden mt-2 text-xs text-muted-foreground text-center leading-tight px-1">
+                      {item.tooltip}
+                    </p>
                   </div>
                 ))}
               </div>
-            </motion.div>
-
-            {/* Item 3: Dashboard */}
-            <motion.div
-              className="md:col-span-2 relative group overflow-hidden rounded-xl border border-border/50 bg-card"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 }}
-            >
-              <Image
-                src="/images/dashboard.png"
-                alt="Dashboard Analítico"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </motion.div>
-
-            {/* Item 4: Infrastructure */}
-            <motion.div
-              className="bg-card border border-border/50 rounded-xl relative overflow-hidden group"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4 }}
-            >
-              <Image
-                src="/images/servidores.png"
-                alt="Infraestructura Dedicada"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>
