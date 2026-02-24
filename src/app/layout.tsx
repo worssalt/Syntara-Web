@@ -48,6 +48,11 @@ export default function RootLayout({
     <html lang="es" className="dark">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className={`${inter.className} min-h-[100svh] flex flex-col bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary`}>
         {GA_ID && (
