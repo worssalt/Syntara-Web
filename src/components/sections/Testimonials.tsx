@@ -9,18 +9,6 @@ export function Testimonials() {
       name: "Karla Pasco Flores",
       role: "Fundadora — Mr.Frit",
     },
-    {
-      quote:
-        "",
-      name: "",
-      role: "",
-    },
-    {
-      quote:
-        " ",
-      name: " ",
-      role: " ",
-    },
   ]
 
   return (

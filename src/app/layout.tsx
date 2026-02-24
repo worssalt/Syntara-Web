@@ -45,6 +45,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="dark">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+      </head>
       <body className={`${inter.className} min-h-[100svh] flex flex-col bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary`}>
         {GA_ID && (
           <>
@@ -56,7 +59,7 @@ export default function RootLayout({
         )}
 
         <Navbar />
-        <main className="flex-1 pt-20">
+        <main className="flex-1 pt-20" style={{ paddingTop: "calc(5rem + env(safe-area-inset-top))" }}>
           {children}
         </main>
         <Footer />

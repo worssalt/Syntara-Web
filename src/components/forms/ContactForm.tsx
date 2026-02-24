@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/select"
 import { useState } from "react"
 import { Loader2, CheckCircle2, AlertCircle } from "lucide-react"
+import { useCurrency } from "@/hooks/useCurrency"
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -51,6 +52,8 @@ export function ContactForm() {
   const [isSuccess, setIsSuccess] = useState(false)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
+  const { symbol: currencySymbol, ready: currencyReady } = useCurrency()
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -75,6 +78,12 @@ export function ContactForm() {
       // Excluir consent del payload — es solo validación local
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { consent: _consent, ...formData } = values
+
+      // prefijar símbolo de moneda si se ha escrito un presupuesto
+      if (formData.budget) {
+        const symbol = currencySymbol || "$"
+        formData.budget = `${symbol}${formData.budget}`
+      }
 
       if (accessKey) {
         const response = await fetch("https://api.web3forms.com/submit", {
@@ -219,7 +228,14 @@ export function ContactForm() {
               <FormItem>
                 <FormLabel>Presupuesto aproximado (opcional)</FormLabel>
                 <FormControl>
-                  <Input placeholder="p.ej. €1.500 - €5.000" {...field} />
+                  <Input
+                    placeholder={
+                      currencyReady
+                        ? `p.ej. ${currencySymbol}1.500 - ${currencySymbol}5.000`
+                        : "p.ej. 1.500 - 5.000"
+                    }
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import React, { useState, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
@@ -33,16 +33,52 @@ const features = [
 
 export function RestaurantSystemContent() {
   const [isOpen, setIsOpen] = useState(false)
-  const [activeItem, setActiveItem] = useState<{
-    image: string
-    title: string
-    description: string
-  } | null>(null)
+  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  const [touchStartX, setTouchStartX] = useState<number | null>(null)
 
-  const handleOpenModal = (item: typeof features[0]) => {
-    setActiveItem(item)
+  const handleOpenModal = (index: number) => {
+    setActiveIndex(index)
     setIsOpen(true)
   }
+
+  const closeModal = () => {
+    setIsOpen(false)
+    setActiveIndex(null)
+  }
+
+  // helpers to know if we can navigate
+  const hasPrev = activeIndex !== null && activeIndex > 0
+  const hasNext = activeIndex !== null && activeIndex < features.length - 1
+
+  const goNext = useCallback(() => {
+    if (activeIndex === null || !hasNext) return
+    setActiveIndex((prev) => prev! + 1)
+  }, [activeIndex, hasNext])
+  const goPrev = useCallback(() => {
+    if (activeIndex === null || !hasPrev) return
+    setActiveIndex((prev) => prev! - 1)
+  }, [activeIndex, hasPrev])
+
+  // disable body scroll and attach keyboard nav when modal open
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"
+      const onKey = (e: KeyboardEvent) => {
+        if (e.key === "ArrowRight" && hasNext) goNext()
+        if (e.key === "ArrowLeft" && hasPrev) goPrev()
+        if (e.key === "Escape") closeModal()
+      }
+      window.addEventListener("keydown", onKey)
+      return () => {
+        window.removeEventListener("keydown", onKey)
+        document.body.style.overflow = ""
+      }
+    }
+    // cleanup if closing
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [isOpen, goNext, goPrev, hasNext, hasPrev])
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -118,7 +154,7 @@ export function RestaurantSystemContent() {
                 className="h-full"
               >
                 <button
-                  onClick={() => handleOpenModal(feature)}
+                  onClick={() => handleOpenModal(index)}
                   className="group w-full h-full bg-card border border-border/50 rounded-xl overflow-hidden shadow-lg p-4 md:p-6 text-left hover:shadow-2xl hover:border-primary/50 transition-all duration-300 flex flex-col"
                 >
                   {/* Image Container */}
@@ -219,7 +255,7 @@ export function RestaurantSystemContent() {
       </section>
 
       <AnimatePresence>
-        {isOpen && activeItem && (
+        {isOpen && activeIndex !== null && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -241,22 +277,79 @@ export function RestaurantSystemContent() {
                 <X className="w-6 h-6" />
               </button>
 
-              <div className="p-6 overflow-y-auto">
-                <div className="relative w-full aspect-video mb-6 rounded-lg overflow-hidden bg-black/50">
-                  <Image
-                    src={activeItem.image}
-                    alt={activeItem.title}
-                    fill
-                    className="object-contain"
-                  />
+              <div className="p-6 overflow-y-auto relative">
+                <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10">
+                  <button
+                    onClick={hasPrev ? goPrev : undefined}
+                    role="button"
+                    aria-label="Anterior"
+                    tabIndex={0}
+                    className={
+                      "p-2 bg-black/40 text-white rounded-full " +
+                      (hasPrev
+                        ? "hover:bg-black/60"
+                        : "opacity-50 cursor-not-allowed")
+                    }
+                  >
+                    <ChevronDown className="w-6 h-6 rotate-90" />
+                  </button>
+                </div>
+                <div className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10">
+                  <button
+                    onClick={hasNext ? goNext : undefined}
+                    role="button"
+                    aria-label="Siguiente"
+                    tabIndex={0}
+                    className={
+                      "p-2 bg-black/40 text-white rounded-full " +
+                      (hasNext
+                        ? "hover:bg-black/60"
+                        : "opacity-50 cursor-not-allowed")
+                    }
+                  >
+                    <ChevronDown className="w-6 h-6 -rotate-90" />
+                  </button>
+                </div>
+
+                <div
+                  className="relative w-full aspect-video mb-6 rounded-lg overflow-hidden bg-black/50"
+                  onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}
+                  onTouchEnd={(e) => {
+                    if (touchStartX === null) return
+                    const delta = e.changedTouches[0].clientX - touchStartX
+                    if (delta > 50 && hasPrev) goPrev()
+                    else if (delta < -50 && hasNext) goNext()
+                    setTouchStartX(null)
+                  }}
+                >
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeIndex}
+                      initial={{ opacity: 0, x: 50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -50 }}
+                      transition={{ duration: 0.4 }}
+                      className="relative w-full h-full"
+                    >
+                      <Image
+                        src={features[activeIndex].image}
+                        alt={features[activeIndex].title}
+                        fill
+                        className="object-contain"
+                      />
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
                 
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                  {activeItem.title}
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                  {features[activeIndex].title}
                 </h3>
+                <p className="text-sm text-white/60 mb-4">
+                  {activeIndex! + 1} / {features.length}
+                </p>
                 
                 <div className="text-gray-300 text-base md:text-lg leading-relaxed whitespace-pre-line">
-                  {activeItem.description}
+                  {features[activeIndex].description}
                 </div>
               </div>
             </motion.div>

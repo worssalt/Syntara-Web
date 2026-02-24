@@ -1,6 +1,7 @@
 import { Hero } from '@/components/sections/Hero'
 import { Features } from '@/components/sections/Features'
-import { SuccessStoriesCarousel } from '@/components/sections/SuccessStoriesCarousel'
+import { CaseStudy } from '@/components/sections/CaseStudy'
+import { Testimonials } from '@/components/sections/Testimonials'
 import { ContactSection } from '@/components/sections/ContactSection'
 
 export default function Home() {
@@ -8,7 +9,8 @@ export default function Home() {
     <div className="flex flex-col">
       <Hero />
       <Features />
-      <SuccessStoriesCarousel />
+      <CaseStudy />
+      <Testimonials />
       <section className="py-16 md:py-24 bg-muted/20">
         <div className="container px-6 mx-auto">
           <div className="text-center mb-12">

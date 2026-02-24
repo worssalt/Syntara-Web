@@ -15,7 +15,11 @@ export function ContactSection() {
               </div>
               <div>
                 <h3 className="font-medium text-foreground">Email</h3>
-                <p className="text-muted-foreground">hola@syntara.biz</p>
+                <p className="text-muted-foreground">
+                  <a href="mailto:hola@syntara.biz" className="text-primary underline hover:no-underline">
+                    hola@syntara.biz
+                  </a>
+                </p>
                 <p className="text-muted-foreground"></p>
               </div>
             </div>
@@ -26,7 +30,11 @@ export function ContactSection() {
               </div>
               <div>
                 <h3 className="font-medium text-foreground">Teléfono</h3>
-                <p className="text-muted-foreground">+51 950796453</p>
+                <p className="text-muted-foreground">
+                  <a href="tel:+51950796453" className="text-primary underline hover:no-underline">
+                    +51 950796453
+                  </a>
+                </p>
                 <p className="text-sm text-muted-foreground mt-1">Lunes a Sabado, 9:00 - 18:00</p>
               </div>
             </div>
