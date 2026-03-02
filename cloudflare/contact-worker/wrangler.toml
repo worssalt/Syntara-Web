@@ -1,0 +1,19 @@
+name = "syntara-contact"
+main = "src/index.js"
+compatibility_date = "2026-02-24"
+
+[vars]
+ALLOWED_ORIGIN = "https://syntara.biz"
+CONTACT_FROM = "Web SYNTARA <web@mail.syntara.biz>"
+CONTACT_TO = "syntaraweb@gmail.com"
+
+# Configura en Cloudflare dashboard/CLI:
+# RESEND_API_KEY = "re_..."
+# TURNSTILE_SECRET = "..." (opcional)
+# RATE_LIMIT_WINDOW_SECONDS = "60" (opcional)
+# RATE_LIMIT_MAX_REQUESTS = "8" (opcional)
+
+# Define un namespace KV para rate limit
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT_KV"
+# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"

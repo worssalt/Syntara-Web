@@ -31,8 +31,8 @@ export function ContactSection() {
               <div>
                 <h3 className="font-medium text-foreground">Teléfono</h3>
                 <p className="text-muted-foreground">
-                  <a href="tel:+51950796453" className="text-primary underline hover:no-underline">
-                    +51 950796453
+                  <a href="tel:+51970216616" className="text-primary underline hover:no-underline">
+                    +51 970216616
                   </a>
                 </p>
                 <p className="text-sm text-muted-foreground mt-1">Lunes a Sabado, 9:00 - 18:00</p>

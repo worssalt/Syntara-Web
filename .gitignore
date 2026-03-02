@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/cloudflare/contact-worker/node_modules
 /.pnp
 .pnp.*
 .yarn/*
@@ -23,6 +24,9 @@
 # misc
 .DS_Store
 *.pem
+
+# cloudflare worker artifacts
+/cloudflare/contact-worker/.wrangler
 
 # debug
 npm-debug.log*

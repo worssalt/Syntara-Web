@@ -22,7 +22,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { Loader2, CheckCircle2, AlertCircle } from "lucide-react"
 import { useCurrency } from "@/hooks/useCurrency"
 
@@ -39,6 +39,9 @@ const formSchema = z.object({
   }),
   budget: z.string().optional(),
   timeline: z.string().optional(),
+  website: z.string().max(0, {
+    message: "Se detectó actividad inválida.",
+  }).optional(),
   message: z.string().min(10, {
     message: "Cuéntanos un poco más sobre tu proyecto (min 10 caracteres).",
   }),
@@ -51,6 +54,8 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
+  const startedAtRef = useRef(Date.now())
+  const contactEndpoint = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT
 
   const { symbol: currencySymbol, ready: currencyReady } = useCurrency()
 
@@ -63,6 +68,7 @@ export function ContactForm() {
       service: "",
       budget: "",
       timeline: "",
+      website: "",
       message: "",
       consent: false,
     },
@@ -73,11 +79,18 @@ export function ContactForm() {
     setErrorMessage(null)
     
     try {
-      // Usar Web3Forms directamente o simular si no hay clave configurada
       const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
       // Excluir consent del payload — es solo validación local
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { consent: _consent, ...formData } = values
+      const { consent: _consent, website, ...formData } = values
+
+      if (website) {
+        throw new Error("No se pudo procesar el envío")
+      }
+
+      if (Date.now() - startedAtRef.current < 2500) {
+        throw new Error("No se pudo procesar el envío")
+      }
 
       // prefijar símbolo de moneda si se ha escrito un presupuesto
       if (formData.budget) {
@@ -85,7 +98,20 @@ export function ContactForm() {
         formData.budget = `${symbol}${formData.budget}`
       }
 
-      if (accessKey) {
+      if (contactEndpoint) {
+        const response = await fetch(contactEndpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ ...formData, source: "web-contact-form" }),
+        })
+
+        if (!response.ok) {
+          const errorText = await response.text()
+          throw new Error(errorText || "Error al enviar el formulario")
+        }
+      } else if (accessKey) {
         const response = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
           headers: {
@@ -147,6 +173,7 @@ export function ContactForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <input type="text" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" {...form.register("website")} />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormField
             control={form.control}
