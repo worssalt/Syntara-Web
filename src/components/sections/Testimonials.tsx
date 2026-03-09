@@ -12,7 +12,7 @@ export function Testimonials() {
   ]
 
   return (
-    <section className="py-24 bg-[#071630] relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-[#071630] relative overflow-hidden">
       {/* Background Stars Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:40px_40px] opacity-60 pointer-events-none" />
       
@@ -29,7 +29,7 @@ export function Testimonials() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 gap-6 max-w-2xl mx-auto">
           {items.map((it) => (
             <div 
               key={it.name} 
@@ -48,7 +48,7 @@ export function Testimonials() {
 
               {/* El Mensaje */}
               <blockquote className="text-base lg:text-lg text-gray-200 font-medium italic leading-relaxed mb-6 relative z-10">
-                "{it.quote}"
+                &ldquo;{it.quote}&rdquo;
               </blockquote>
 
               {/* Bloque de Autor */}

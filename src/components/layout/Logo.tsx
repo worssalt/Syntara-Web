@@ -3,7 +3,7 @@ import Image from "next/image"
 export function Logo({ className }: { className?: string }) {
   return (
     <div className={`flex items-center gap-3 md:gap-4 ${className}`}>
-      <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex-shrink-0">
+      <div className="relative w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0">
         <Image 
           src="/logo.png" 
           alt="Syntara Logo" 
@@ -13,7 +13,7 @@ export function Logo({ className }: { className?: string }) {
         />
       </div>
       <div className="flex flex-col justify-center">
-        <span className="font-bold text-xl sm:text-2xl tracking-tight text-white leading-none">SYNTARA</span>
+        <span className="font-bold text-base sm:text-lg tracking-tight text-white leading-none">SYNTARA</span>
         <span className="hidden sm:block text-xs text-muted-foreground tracking-wide mt-0.5 uppercase">Servicios Web y Sistemas a Medida</span>
       </div>
     </div>

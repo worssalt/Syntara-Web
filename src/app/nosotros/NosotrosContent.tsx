@@ -68,7 +68,7 @@ export function NosotrosContent() {
           Nuestro ADN
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
           {values.map((value, index) => (
             <motion.div
               key={value.title}
@@ -252,10 +252,10 @@ export function NosotrosContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl md:text-6xl font-bold mb-8 text-white">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-8 text-white">
               ¿Tu negocio está listo para el <span className="text-syntara-cyan">siguiente nivel</span>?
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+            <p className="text-base sm:text-xl text-gray-400 max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed">
               Deja atrás los procesos manuales y las hojas de cálculo. Desarrollemos el sistema a medida que tu equipo necesita para escalar sin límites.
             </p>
             <Link href="/contacto">

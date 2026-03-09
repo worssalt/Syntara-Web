@@ -104,10 +104,10 @@ export function RestaurantSystemContent() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="max-w-5xl mx-auto"
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 drop-shadow-lg">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 drop-shadow-lg">
               Sistema Integral de Gestión para Restaurantes
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-10 leading-relaxed drop-shadow-md">
+            <p className="text-base sm:text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-10 leading-relaxed drop-shadow-md">
               Potencia tu negocio gastronómico con tecnología de vanguardia.
             </p>
             <motion.div
@@ -221,15 +221,15 @@ export function RestaurantSystemContent() {
             </div>
             
             <div className="grid grid-cols-2 gap-6">
-              <div className="bg-card p-8 rounded-2xl shadow-lg border border-border/50 text-center hover:-translate-y-1 transition-transform duration-300">
+              <div className="bg-card p-4 md:p-8 rounded-2xl shadow-lg border border-border/50 text-center hover:-translate-y-1 transition-transform duration-300">
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2">+30%</div>
                 <div className="text-sm text-muted-foreground uppercase tracking-wider font-semibold">Más Ventas</div>
               </div>
-              <div className="bg-card p-8 rounded-2xl shadow-lg border border-border/50 text-center hover:-translate-y-1 transition-transform duration-300">
+              <div className="bg-card p-4 md:p-8 rounded-2xl shadow-lg border border-border/50 text-center hover:-translate-y-1 transition-transform duration-300">
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2">-hrs</div>
                 <div className="text-sm text-muted-foreground uppercase tracking-wider font-semibold">Tiempo ahorrado en pedidos </div>
               </div>
-              <div className="col-span-2 bg-gradient-to-r from-card to-muted p-8 rounded-2xl shadow-lg border border-border/50 text-center hover:-translate-y-1 transition-transform duration-300">
+              <div className="col-span-2 bg-gradient-to-r from-card to-muted p-4 md:p-8 rounded-2xl shadow-lg border border-border/50 text-center hover:-translate-y-1 transition-transform duration-300">
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2">100%</div>
                 <div className="text-sm text-muted-foreground uppercase tracking-wider font-semibold">Control de Inventario</div>
               </div>
@@ -277,40 +277,41 @@ export function RestaurantSystemContent() {
                 <X className="w-6 h-6" />
               </button>
 
-              <div className="p-6 overflow-y-auto relative">
-                <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10">
-                  <button
-                    onClick={hasPrev ? goPrev : undefined}
-                    role="button"
-                    aria-label="Anterior"
-                    tabIndex={0}
-                    className={
-                      "p-2 bg-black/40 text-white rounded-full " +
-                      (hasPrev
-                        ? "hover:bg-black/60"
-                        : "opacity-50 cursor-not-allowed")
-                    }
-                  >
-                    <ChevronDown className="w-6 h-6 rotate-90" />
-                  </button>
-                </div>
-                <div className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10">
-                  <button
-                    onClick={hasNext ? goNext : undefined}
-                    role="button"
-                    aria-label="Siguiente"
-                    tabIndex={0}
-                    className={
-                      "p-2 bg-black/40 text-white rounded-full " +
-                      (hasNext
-                        ? "hover:bg-black/60"
-                        : "opacity-50 cursor-not-allowed")
-                    }
-                  >
-                    <ChevronDown className="w-6 h-6 -rotate-90" />
-                  </button>
-                </div>
+              {/* Nav buttons outside scroll area so they stay fixed in the modal */}
+              <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10">
+                <button
+                  onClick={hasPrev ? goPrev : undefined}
+                  role="button"
+                  aria-label="Anterior"
+                  tabIndex={0}
+                  className={
+                    "p-2 bg-black/40 text-white rounded-full " +
+                    (hasPrev
+                      ? "hover:bg-black/60"
+                      : "opacity-50 cursor-not-allowed")
+                  }
+                >
+                  <ChevronDown className="w-6 h-6 rotate-90" />
+                </button>
+              </div>
+              <div className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10">
+                <button
+                  onClick={hasNext ? goNext : undefined}
+                  role="button"
+                  aria-label="Siguiente"
+                  tabIndex={0}
+                  className={
+                    "p-2 bg-black/40 text-white rounded-full " +
+                    (hasNext
+                      ? "hover:bg-black/60"
+                      : "opacity-50 cursor-not-allowed")
+                  }
+                >
+                  <ChevronDown className="w-6 h-6 -rotate-90" />
+                </button>
+              </div>
 
+              <div className="p-6 overflow-y-auto">
                 <div
                   className="relative w-full aspect-video mb-6 rounded-lg overflow-hidden bg-black/50"
                   onTouchStart={(e) => setTouchStartX(e.touches[0].clientX)}

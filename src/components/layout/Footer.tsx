@@ -12,7 +12,7 @@ export function Footer() {
       </div>
 
       {/* 2. Cuadrícula Principal (4 Columnas) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12 max-w-7xl mx-auto px-6 md:px-8 relative z-10">
         
         {/* 3. Columna 1: Branding */}
         <div className="flex flex-col items-start">
@@ -94,7 +94,7 @@ export function Footer() {
       </div>
 
       {/* 7. Barra Inferior (Copyright) */}
-      <div className="mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 relative z-10 max-w-7xl mx-auto px-6 md:px-8">
+      <div className="mt-12 md:mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500 relative z-10 max-w-7xl mx-auto px-6 md:px-8">
         <p>
           &copy; {new Date().getFullYear()} Syntara. Todos los derechos reservados.
         </p>

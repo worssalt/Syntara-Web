@@ -17,10 +17,10 @@ export function metadata() {
 export default function Error({ error, reset }: ErrorProps) {
   return (
     <div className="flex-1 flex items-center justify-center p-8">
-      <div className="max-w-xl w-full text-center bg-card border border-border rounded-2xl p-10">
+      <div className="max-w-xl w-full text-center bg-card border border-border rounded-2xl p-6 md:p-10">
         <h2 className="text-2xl font-bold mb-4">Ha ocurrido un error</h2>
         <p className="text-muted-foreground mb-6">{error?.message || "Se ha producido un error inesperado."}</p>
-        <div className="flex gap-4 justify-center">
+        <div className="flex flex-wrap gap-3 justify-center">
           <Button onClick={() => reset()} variant="outline">Reintentar</Button>
           <Link href="/contacto">
             <Button>Contactar soporte</Button>

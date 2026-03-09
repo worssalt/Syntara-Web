@@ -3,7 +3,7 @@ import { TrendingUp, Users, RefreshCw, BarChart2, Plug, Cloud } from 'lucide-rea
 
 export function SystemMonitor() {
   return (
-    <section className="py-24 relative overflow-hidden bg-[#071630] perspective-[2000px]">
+    <section className="py-16 md:py-24 relative overflow-hidden bg-[#071630] perspective-[2000px]">
       {/* Background Stars Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:40px_40px] opacity-60 pointer-events-none" />
       
@@ -47,7 +47,7 @@ export function SystemMonitor() {
           </div>
 
           {/* Floating Card Left: Active Users */}
-          <div className="absolute left-2 bottom-0 scale-75 origin-bottom-left md:left-[-2rem] lg:left-[-4rem] md:bottom-8 md:scale-100 z-30 bg-[#030812]/70 backdrop-blur-xl rounded-xl p-5 border border-white/10 shadow-[0_0_60px_rgba(0,229,255,0.2)] animate-bounce-subtle w-64">
+          <div className="hidden sm:block absolute left-2 bottom-0 scale-75 origin-bottom-left md:left-[-2rem] lg:left-[-4rem] md:bottom-8 md:scale-100 z-30 bg-[#030812]/70 backdrop-blur-xl rounded-xl p-5 border border-white/10 shadow-[0_0_60px_rgba(0,229,255,0.2)] animate-bounce-subtle w-64">
             <div className="flex justify-between items-start mb-2">
               <span className="text-sm text-gray-400 font-medium">Usuarios Activos</span>
               <Users className="w-5 h-5 text-syntara-cyan" />
@@ -65,7 +65,7 @@ export function SystemMonitor() {
           </div>
 
           {/* Floating Card Right: Sales Today */}
-          <div className="absolute right-2 top-0 scale-75 origin-top-right md:right-[-2rem] lg:right-[-4rem] md:top-8 md:scale-100 z-30 bg-[#030812]/70 backdrop-blur-xl rounded-xl p-5 border border-white/10 shadow-[0_0_0px_rgba(57,255,20,0.2)] animate-bounce-subtle w-60">
+          <div className="hidden sm:block absolute right-2 top-0 scale-75 origin-top-right md:right-[-2rem] lg:right-[-4rem] md:top-8 md:scale-100 z-30 bg-[#030812]/70 backdrop-blur-xl rounded-xl p-5 border border-white/10 shadow-[0_0_0px_rgba(57,255,20,0.2)] animate-bounce-subtle w-60">
             <div className="text-sm text-gray-400 font-medium mb-1">Ventas Hoy</div>
             <div className="text-3xl font-bold text-white mb-3">$24,580</div>
             <div className="flex items-center gap-1 bg-[#39FF14]/10 text-[#39FF14] text-xs font-bold px-2 py-1 rounded-md w-fit">

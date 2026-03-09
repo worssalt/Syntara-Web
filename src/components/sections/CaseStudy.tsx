@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react"
 
 export function CaseStudy() {
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-16 md:py-24 relative overflow-hidden">
       {/* Background Pattern & Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.1)_1px,transparent_1px)] [background-size:40px_40px] opacity-30" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-syntara-cyan/5 rounded-full blur-[120px] pointer-events-none" />
@@ -39,7 +39,7 @@ export function CaseStudy() {
             </div>
             
             {/* Floating Badge '01' */}
-            <div className="absolute -top-6 -left-6 w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 to-syntara-cyan flex items-center justify-center shadow-lg z-20 border-4 border-black">
+            <div className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 to-syntara-cyan flex items-center justify-center shadow-lg z-20 border-4 border-black">
               <span className="text-white text-xl font-bold">01</span>
             </div>
           </div>
@@ -101,7 +101,7 @@ export function CaseStudy() {
         </div>
 
         {/* Case 02: E-commerce */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mt-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mt-16 md:mt-24 lg:mt-32 ">
           
           {/* Left Column (Content) - Order 2 on mobile, Order 1 on desktop */}
           <div className="order-2 lg:order-1">
@@ -172,7 +172,7 @@ export function CaseStudy() {
             </div>
             
             {/* Floating Badge '02' */}
-            <div className="absolute -top-6 -left-6 w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 to-syntara-cyan flex items-center justify-center shadow-lg z-20 border-4 border-black">
+            <div className="absolute -top-4 -left-4 sm:-top-6 sm:-left-6 w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 to-syntara-cyan flex items-center justify-center shadow-lg z-20 border-4 border-black">
               <span className="text-white text-xl font-bold">02</span>
             </div>
           </div>

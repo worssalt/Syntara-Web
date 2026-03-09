@@ -19,7 +19,7 @@ export function Navbar() {
         </Link>
 
         {/* Center Navigation - Absolute Positioned */}
-        <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-10">
+        <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-6 lg:gap-10">
           {[
             { name: "Inicio", href: "/" },
             { name: "Servicios", href: "/servicios-web" },
@@ -39,7 +39,7 @@ export function Navbar() {
         {/* Right Actions */}
         <div className="flex items-center gap-4 z-20">
           {/* Social Icons (Desktop) */}
-          <div className="hidden md:flex items-center gap-4 border-r border-white/10 pr-6 mr-2">
+          <div className="hidden md:flex items-center gap-2 md:gap-4 border-r border-white/10 pr-6 mr-2">
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-syntara-cyan hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.8)] transition-all duration-300">
               <Linkedin className="w-5 h-5" />
             </a>

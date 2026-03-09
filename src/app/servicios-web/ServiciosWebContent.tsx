@@ -35,7 +35,7 @@ export function ServiciosWebContent() {
       <section className="relative pt-32 pb-20 z-10">
         <div className="absolute top-20 left-1/3 w-[600px] h-[600px] bg-syntara-cyan/15 blur-[160px] pointer-events-none -z-10 rounded-full"></div>
         <div className="container px-6 mx-auto relative z-10">
-          <div className="flex flex-col md:flex-row items-center gap-12">
+          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -45,7 +45,7 @@ export function ServiciosWebContent() {
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight">
                 <span className="text-white font-bold">Productos digitales:</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-syntara-cyan to-blue-400 font-extrabold">webs, apps y tiendas</span>
               </h1>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0">
+              <p className="text-base sm:text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0">
                 Diseño y desarrollo orientado a resultados — desde proyectos sencillos hasta plataformas de venta y aplicaciones a medida.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -78,7 +78,7 @@ export function ServiciosWebContent() {
       </section>
 
       {/* Benefits Section */}
-      <section className="relative z-10 bg-gradient-to-b from-transparent to-[#030712]/50 py-24">
+      <section className="relative z-10 bg-gradient-to-b from-transparent to-[#030712]/50 py-16 md:py-24">
         <div className="container px-6 mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -120,7 +120,7 @@ export function ServiciosWebContent() {
       <Testimonials />
 
       {/* CTA Section */}
-      <section className="py-24 bg-background relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-background relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-background" />
         <div className="container px-6 mx-auto relative z-10 text-center">
           <motion.div

@@ -3,11 +3,11 @@ import { ContactForm } from "@/components/forms/ContactForm"
 
 export function ContactSection() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 relative z-10">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 relative z-10">
       {/* Contact Info */}
       <div className="space-y-8">
         <div className="p-4 md:p-8 rounded-2xl bg-black/40 backdrop-blur-md border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.3)]">
-          <h2 className="text-2xl font-bold mb-8 text-white">Información de Contacto</h2>
+          <h2 className="text-2xl font-bold mb-4 md:mb-8 text-white">Información de Contacto</h2>
           <div className="space-y-8">
             <div className="flex items-start gap-5 group">
               <div className="w-12 h-12 rounded-xl bg-syntara-cyan/10 border border-syntara-cyan/20 flex items-center justify-center shrink-0 group-hover:bg-syntara-cyan/20 group-hover:border-syntara-cyan/40 transition-all duration-300">
@@ -72,7 +72,7 @@ export function ContactSection() {
         {/* Subtle top gradient line */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-syntara-cyan/50 to-transparent opacity-50"></div>
         
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-white">Envíanos un mensaje</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-8 text-white">Envíanos un mensaje</h2>
         <ContactForm />
       </div>
     </div>

@@ -10,7 +10,7 @@ export default function TerminosPage() {
     <div className="flex flex-col min-h-screen">
       <section className="py-20 bg-background border-b border-border/50">
         <div className="container px-6 mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6">
             Términos de <span className="text-primary">Uso</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">

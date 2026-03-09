@@ -65,7 +65,7 @@ export default function RootLayout({
         )}
 
         <Navbar />
-        <main className="flex-1 pt-20" style={{ paddingTop: "calc(5rem + env(safe-area-inset-top))" }}>
+        <main className="flex-1" style={{ paddingTop: "calc(5rem + env(safe-area-inset-top))" }}>
           {children}
         </main>
         <Footer />

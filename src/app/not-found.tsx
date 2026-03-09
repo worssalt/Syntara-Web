@@ -10,7 +10,7 @@ export const metadata = {
 export default function NotFound() {
   return (
     <div className="flex-1 flex items-center justify-center p-8">
-      <div className="max-w-xl w-full text-center bg-card border border-border rounded-2xl p-10">
+      <div className="max-w-xl w-full text-center bg-card border border-border rounded-2xl p-6 md:p-10">
         <div className="w-16 h-16 rounded-full bg-primary/10 text-primary mx-auto flex items-center justify-center mb-6">
           <AlertCircle className="h-8 w-8" />
         </div>
@@ -18,7 +18,7 @@ export default function NotFound() {
         <p className="text-muted-foreground mb-6">
           Lo sentimos — no hemos encontrado la página que buscas. Puede haber sido movida o eliminada.
         </p>
-        <div className="flex gap-4 justify-center">
+        <div className="flex flex-wrap gap-3 justify-center">
           <Link href="/">
             <Button variant="outline">Volver al inicio</Button>
           </Link>

@@ -29,7 +29,7 @@ const features = [
 
 export function Features() {
   return (
-    <section className="py-24 bg-gradient-to-b from-background via-[#051024] to-[#071630] relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-background via-[#051024] to-[#071630] relative overflow-hidden">
       <div className="container px-6 mx-auto relative z-10">
         <div className="text-center mb-20 space-y-4">
           <h2 className="text-3xl md:text-5xl font-bold text-white">
@@ -60,7 +60,7 @@ export function Features() {
                 <h3 className="text-3xl font-bold text-white mb-4">
                   {feature.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed mb-12 min-h-[4rem]">
+                <p className="text-gray-400 leading-relaxed mb-6 md:mb-12 md:min-h-[4rem]">
                   {feature.description}
                 </p>
 

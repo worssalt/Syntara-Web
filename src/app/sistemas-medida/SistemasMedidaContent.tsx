@@ -22,13 +22,13 @@ export function SistemasMedidaContent() {
             <div className="inline-block mb-6 px-4 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-sm font-medium">
               Soluciones a medida para PYMEs
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8">
               Tu negocio 100% bajo   <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
                 control y en tiempo real
               </span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base sm:text-xl text-muted-foreground mb-10 leading-relaxed max-w-2xl mx-auto">
               Simplificamos tu gestión diaria con sistemas personalizados. Automatiza procesos, reduce errores humanos y toma decisiones rápidas basadas en datos reales.
             </p>
             <Link href="/contacto">
@@ -50,7 +50,7 @@ export function SistemasMedidaContent() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none opacity-20" />
 
         <div className="container px-6 lg:px-8 mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full max-w-7xl mx-auto">
             
             {/* Left Column: The Subtle Glow Card */}
             <motion.div
@@ -58,7 +58,7 @@ export function SistemasMedidaContent() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="relative rounded-2xl p-10 bg-[#0A1220]/60 backdrop-blur-xl border border-white/10 shadow-[0_0_50px_rgba(0,229,255,0.15)] transition-all duration-300 group overflow-hidden flex flex-col gap-8"
+              className="relative rounded-2xl p-6 md:p-8 lg:p-10 bg-[#0A1220]/60 backdrop-blur-xl border border-white/10 shadow-[0_0_50px_rgba(0,229,255,0.15)] transition-all duration-300 group overflow-hidden flex flex-col gap-8"
             >
               {/* Internal Glow */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-syntara-cyan/15 blur-[60px] pointer-events-none -z-10" />
@@ -118,7 +118,7 @@ export function SistemasMedidaContent() {
             >
               <div className="relative w-full flex justify-center lg:justify-end">
                 {/* Caja escaladora */}
-                <div className="w-full max-w-lg lg:max-w-[120%] xl:max-w-[110%] transform scale-90 sm:scale-100 lg:scale-90 xl:scale-95 origin-center lg:origin-right transition-all">
+                 <div className="w-full max-w-lg lg:max-w-full xl:max-w-full transform scale-90 sm:scale-100 lg:scale-90 xl:scale-95 origin-center lg:origin-right transition-all">
                   
                   {/* Central Visual Dashboard - 3D Rotating Hologram */}
                   <div className="relative w-full max-w-2xl lg:max-w-4xl mx-auto z-20 perspective-[2000px] overflow-hidden md:overflow-visible px-4 md:px-0">
@@ -144,7 +144,7 @@ export function SistemasMedidaContent() {
                     </div>
 
                     {/* Floating Card Left: Active Users */}
-                    <div className="absolute left-2 bottom-0 scale-75 origin-bottom-left md:left-[-2rem] lg:left-[-4rem] md:bottom-8 md:scale-100 z-30 bg-[#030812]/70 backdrop-blur-xl rounded-xl p-5 border border-white/10 shadow-[0_0_60px_rgba(0,229,255,0.2)] animate-bounce-subtle w-64">
+                    <div className="hidden sm:block absolute left-2 bottom-0 scale-75 origin-bottom-left md:left-[-2rem] lg:left-[-4rem] md:bottom-8 md:scale-100 z-30 bg-[#030812]/70 backdrop-blur-xl rounded-xl p-5 border border-white/10 shadow-[0_0_60px_rgba(0,229,255,0.2)] animate-bounce-subtle w-64">
                       <div className="flex justify-between items-start mb-2">
                         <span className="text-sm text-gray-400 font-medium">Usuarios Activos</span>
                         <Users className="w-5 h-5 text-syntara-cyan" />
@@ -162,7 +162,7 @@ export function SistemasMedidaContent() {
                     </div>
 
                     {/* Floating Card Right: Sales Today */}
-                    <div className="absolute right-2 top-0 scale-75 origin-top-right md:right-[-2rem] lg:right-[-4rem] md:top-8 md:scale-100 z-30 bg-[#030812]/70 backdrop-blur-xl rounded-xl p-5 border border-white/10 shadow-[0_0_0px_rgba(57,255,20,0.2)] animate-bounce-subtle w-60">
+                    <div className="hidden sm:block absolute right-2 top-0 scale-75 origin-top-right md:right-[-2rem] lg:right-[-4rem] md:top-8 md:scale-100 z-30 bg-[#030812]/70 backdrop-blur-xl rounded-xl p-5 border border-white/10 shadow-[0_0_0px_rgba(57,255,20,0.2)] animate-bounce-subtle w-60">
                       <div className="text-sm text-gray-400 font-medium mb-1">Ventas Hoy</div>
                       <div className="text-3xl font-bold text-white mb-3">$24,580</div>
                       <div className="flex items-center gap-1 bg-[#39FF14]/10 text-[#39FF14] text-xs font-bold px-2 py-1 rounded-md w-fit">
@@ -296,7 +296,7 @@ export function SistemasMedidaContent() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-background relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-background relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-primary/5 via-transparent to-transparent" />
         <div className="container px-6 mx-auto relative z-10 text-center">
           <motion.div

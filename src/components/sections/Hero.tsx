@@ -28,19 +28,19 @@ export function Hero() {
 
             <div className="flex flex-row gap-2 w-full sm:w-auto">
               <Link href="/contacto" className="flex-1 sm:flex-none">
-                <Button className="w-full px-3 py-2 bg-syntara-cyan hover:bg-syntara-cyan/90 text-[#030712] font-bold text-[10px] sm:text-xs rounded-lg shadow-lg transition-all h-auto">
+                <Button className="w-full px-3 py-2 bg-syntara-cyan hover:bg-syntara-cyan/90 text-[#030712] font-bold text-xs sm:text-sm rounded-lg shadow-lg transition-all h-auto">
                   Iniciar transformación
                 </Button>
               </Link>
               <Link href="/servicios-web" className="flex-1 sm:flex-none">
-                <Button variant="ghost" className="w-full px-3 py-2 border border-white/10 bg-white/5 hover:bg-white/10 text-white font-bold text-[10px] sm:text-xs rounded-lg backdrop-blur-md transition-all h-auto">
+                <Button variant="ghost" className="w-full px-3 py-2 border border-white/10 bg-white/5 hover:bg-white/10 text-white font-bold text-xs sm:text-sm rounded-lg backdrop-blur-md transition-all h-auto">
                   Ver servicios
                 </Button>
               </Link>
             </div>
 
             {/* Statistics */}
-            <div className="flex gap-8 pt-0 justify-center lg:justify-start border-t border-white/10 w-full lg:w-auto mt-0">
+            <div className="flex flex-wrap gap-8 pt-0 justify-center lg:justify-start border-t border-white/10 w-full lg:w-auto mt-0">
               <div className="mt-4">
                 <p className="text-xl md:text-2xl font-bold text-syntara-cyan/90 mb-1">+11</p>
                 <p className="text-[10px] sm:text-xs text-gray-400 font-semibold tracking-wider mt-1">PROYECTOS</p>
@@ -75,12 +75,12 @@ export function Hero() {
 
             {/* Floating Elements */}
             {/* Top Right */}
-            <div className="absolute -top-6 -right-4 lg:-right-8 bg-[#0A1220]/50 backdrop-blur-md border border-white/10 rounded-2xl p-4 shadow-2xl animate-bounce duration-[3000ms]">
+            <div className="hidden sm:block absolute -top-6 -right-4 lg:-right-8 bg-[#0A1220]/50 backdrop-blur-md border border-white/10 rounded-2xl p-4 shadow-2xl animate-bounce duration-[3000ms]">
               <BarChart3 className="w-8 h-8 text-syntara-green/80" />
             </div>
 
             {/* Bottom Left */}
-            <div className="absolute -bottom-6 -left-4 lg:-left-8 bg-[#0A1220]/50 backdrop-blur-md border border-white/10 rounded-2xl p-4 shadow-2xl animate-bounce duration-[4000ms] delay-700">
+            <div className="hidden sm:block absolute -bottom-6 -left-4 lg:-left-8 bg-[#0A1220]/50 backdrop-blur-md border border-white/10 rounded-2xl p-4 shadow-2xl animate-bounce duration-[4000ms] delay-700">
               <Rocket className="w-8 h-8 text-syntara-cyan/80" />
             </div>
           </div>
