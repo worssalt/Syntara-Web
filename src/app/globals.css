@@ -48,6 +48,10 @@
     from { height: var(--radix-accordion-content-height) }
     to { height: 0 }
   }
+  @keyframes spin-y {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+  }
 }
 
 /*
@@ -137,4 +141,49 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@theme inline {
+  --color-syntara-cyan: #00E5FF; /* Cian eléctrico intenso */
+  --color-syntara-green: #39FF14; /* Verde neón puro */
+}
+
+@layer utilities {
+  .text-gradient-neon {
+    @apply bg-gradient-to-r from-syntara-cyan to-syntara-green bg-clip-text text-transparent brightness-150;
+  }
+  .btn-glow-green {
+    @apply transition-all duration-300 hover:shadow-[0_0_30px_rgba(57,255,20,0.7)] hover:-translate-y-1 hover:border-syntara-green hover:brightness-110 active:scale-95;
+  }
+  .btn-glow-cyan {
+    @apply transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,229,255,0.7)] hover:-translate-y-1 hover:border-syntara-cyan hover:brightness-110 active:scale-95;
+  }
+
+  @keyframes bounce-subtle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); } /* Movimiento ligero hacia arriba */
+  }
+  .animate-bounce-subtle {
+    animation: bounce-subtle 3s ease-in-out infinite;
+  }
+}
+
+/* Custom Scrollbar */ 
+::-webkit-scrollbar { 
+  width: 12px; 
+} 
+::-webkit-scrollbar-track { 
+  background: #050B14; /* Fondo oscuro */ 
+  border-left: 1px solid rgba(255, 255, 255, 0.05); 
+} 
+::-webkit-scrollbar-thumb { 
+  background: #00E5FF; /* Cian por defecto */ 
+  border-radius: 6px; 
+  border: 3px solid #050B14; /* Margen interior */ 
+} 
+::-webkit-scrollbar-thumb:hover { 
+  background: #00b8cc; /* Cian más oscuro al pasar el mouse */ 
+} 
+::-webkit-scrollbar-thumb:active { 
+  background: #39FF14; /* Verde neón al hacer clic/arrastrar */ 
 }

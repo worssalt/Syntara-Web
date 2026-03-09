@@ -28,10 +28,12 @@ const benefits = [
 
 export function ServiciosWebContent() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-[#030712] overflow-hidden relative">
+       <div className="absolute inset-0 bg-[linear-gradient(to_right,#00e5ff05_1px,transparent_1px),linear-gradient(to_bottom,#00e5ff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:linear-gradient(to_bottom,transparent_0%,white_20%,white_80%,transparent_100%)] pointer-events-none -z-20"></div>
+
       {/* Hero Section */}
-      <section className="relative py-24 md:py-32 overflow-hidden bg-background">
-        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
+      <section className="relative pt-32 pb-20 z-10">
+        <div className="absolute top-20 left-1/3 w-[600px] h-[600px] bg-syntara-cyan/15 blur-[160px] pointer-events-none -z-10 rounded-full"></div>
         <div className="container px-6 mx-auto relative z-10">
           <div className="flex flex-col md:flex-row items-center gap-12">
             <motion.div
@@ -41,14 +43,14 @@ export function ServiciosWebContent() {
               className="flex-1 text-center md:text-left"
             >
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight">
-                Productos digitales: <span className="text-primary">webs, apps y tiendas</span>
+                <span className="text-white font-bold">Productos digitales:</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-syntara-cyan to-blue-400 font-extrabold">webs, apps y tiendas</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0">
                 Diseño y desarrollo orientado a resultados — desde proyectos sencillos hasta plataformas de venta y aplicaciones a medida.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <Link href="/contacto">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8">
+                  <Button size="lg" className="px-8 py-4 rounded-xl font-bold bg-syntara-cyan text-[#030712] shadow-[0_0_20px_rgba(0,229,255,0.4)] hover:shadow-[0_0_40px_rgba(0,229,255,0.6)] hover:-translate-y-1 transition-all duration-300">
                     Solicitar presupuesto
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
@@ -76,7 +78,7 @@ export function ServiciosWebContent() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-24 bg-muted/30">
+      <section className="relative z-10 bg-gradient-to-b from-transparent to-[#030712]/50 py-24">
         <div className="container px-6 mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -98,29 +100,24 @@ export function ServiciosWebContent() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-colors duration-300">
-                  <CardHeader>
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-primary">
+                <div className="relative bg-[#0A1220]/60 backdrop-blur-xl border border-white/5 rounded-2xl p-8 md:p-10 group hover:-translate-y-3 transition-all duration-500 overflow-hidden h-full">
+                    <div className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-syntara-cyan mb-6 group-hover:bg-syntara-cyan/10 group-hover:border-syntara-cyan/50 group-hover:shadow-[0_0_30px_rgba(0,229,255,0.4)] transition-all group-hover:scale-110">
                       <benefit.icon className="h-6 w-6" />
                     </div>
-                    <CardTitle className="text-xl">{benefit.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base">
+                    <h3 className="text-xl font-bold mb-2">{benefit.title}</h3>
+                    <p className="text-base text-muted-foreground">
                       {benefit.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
+                    </p>
+                </div>
               </motion.div>
             ))}
           </div>
-
-
-          {/* Case study + testimonials */}
-          <CaseStudy />
-          <Testimonials />
         </div>
       </section>
+
+      {/* Case study + testimonials */}
+      <CaseStudy />
+      <Testimonials />
 
       {/* CTA Section */}
       <section className="py-24 bg-background relative overflow-hidden">

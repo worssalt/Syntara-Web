@@ -1,70 +1,184 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
 
 export function CaseStudy() {
   return (
-    <section className="py-6 bg-background/50 overflow-hidden">
-      <div className="container px-6 mx-auto">
-        <div className="mb-3">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Casos de Éxito: Negocios que ya transformamos
+    <section className="py-24 relative overflow-hidden">
+      {/* Background Pattern & Glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.1)_1px,transparent_1px)] [background-size:40px_40px] opacity-30" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-syntara-cyan/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container px-6 mx-auto relative z-10">
+        
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-4">
+            Sistemas que <span className="text-syntara-cyan">Escalan</span>
           </h2>
+          <p className="text-gray-400 text-lg md:text-xl">
+            Casos reales de éxito con resultados medibles.
+          </p>
         </div>
 
-        {/* Horizontal Scroll Container */}
-        <div className="flex overflow-x-auto snap-x gap-6 pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        {/* Split Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mt-16">
           
-          {/* Card 1 */}
-          <div className="w-[80%] md:w-[45%] flex-shrink-0 snap-center rounded-xl overflow-hidden border border-border/50 bg-card/40 backdrop-blur-sm group hover:border-primary/30 transition-colors">
-            {/* Image */}
-            <div className="relative w-full aspect-video overflow-hidden">
-              <Image 
-                src="/images/restaurante-sistema.png" 
-                alt="Sistema de Gestión Gastronómico" 
-                fill 
-                className="object-cover transition-transform duration-700 group-hover:scale-105" 
-              />
-              <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-b from-transparent to-background" />
+          {/* Left Column: Image & Badge */}
+          <div className="relative group">
+            <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(0,229,255,0.1)] group-hover:shadow-[0_0_50px_rgba(0,229,255,0.2)] transition-shadow duration-500">
+              <div className="aspect-[4/3] relative">
+                <Image 
+                  src="/images/restaurante-sistema.png" 
+                  alt="Sistema de Gestión para Restaurante" 
+                  fill 
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              </div>
             </div>
             
-            {/* Content */}
-            <div className="p-6 md:p-8 relative">
-              
-              <div className="absolute -top-6 left-6 md:left-8 z-20">
-                <span className="bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full shadow-lg tracking-wide">
-                  SISTEMA DE GESTIÓN GASTRONÓMICO
-                </span>
-              </div>
-              
-              <div className="relative z-10">
-                <h3 className="text-2xl font-bold mb-1 mt-2">Control Total para Restaurante</h3>
-                <p className="text-muted-foreground mb-3 line-clamp-3 leading-relaxed">
-                  Automatizamos la atención al cliente, la gestión de mesas, el control de inventario y el registro de ventas en tiempo real desde diferentes dispositivos.
-                </p>
-                
-                <Button asChild variant="link" className="p-0 h-auto font-semibold text-primary hover:text-primary/80 group/btn">
-                  <Link href="/casos/sistema-restaurante" className="flex items-center gap-2">
-                    Ver caso completo <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                  </Link>
-                </Button>
-              </div>
+            {/* Floating Badge '01' */}
+            <div className="absolute -top-6 -left-6 w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 to-syntara-cyan flex items-center justify-center shadow-lg z-20 border-4 border-black">
+              <span className="text-white text-xl font-bold">01</span>
             </div>
           </div>
 
-          {/* Placeholder Card for "More coming soon" to show scrollability */}
-           <div className="w-[80%] md:w-[45%] flex-shrink-0 snap-center rounded-xl overflow-hidden border border-border/50 bg-muted/5 flex flex-col justify-center items-center text-center p-8">
-              <div className="w-16 h-16 rounded-full bg-muted/20 flex items-center justify-center mb-4">
-                <span className="text-2xl">🚀</span>
+          {/* Right Column: Content */}
+          <div>
+            {/* Category Tag */}
+            <div className="inline-block px-3 py-1 rounded-full border border-syntara-cyan/30 text-syntara-cyan text-xs font-medium tracking-wide mb-6 bg-syntara-cyan/5">
+              SaaS a Medida • Gastronomía
+            </div>
+
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+              Control Total para Restaurante
+            </h3>
+            
+            <p className="text-gray-400 leading-relaxed mb-8 text-lg">
+              Automatizamos la atención al cliente, la gestión de mesas, el control de inventario y el registro de ventas en tiempo real desde diferentes dispositivos, eliminando errores operativos.
+            </p>
+
+            {/* Tech Stack */}
+            <div className="flex flex-wrap gap-2 mb-8">
+              {['React', 'Node.js', 'PostgreSQL', 'AWS'].map((tech) => (
+                <span key={tech} className="px-3 py-1 rounded-md border border-white/10 text-gray-400 text-xs bg-white/5">
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            {/* Results Grid */}
+            <div className="grid grid-cols-2 gap-x-4 gap-y-8 mb-10 border-t border-white/10 pt-8">
+              <div>
+                <div className="text-3xl font-bold text-syntara-cyan mb-1">+180%</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wider">ventas online</div>
               </div>
-              <h3 className="text-xl font-bold mb-2">Más casos de éxito</h3>
-              <p className="text-muted-foreground max-w-xs mx-auto">
-                Pronto publicaremos más historias de transformación digital.
-              </p>
-           </div>
+              <div>
+                <div className="text-3xl font-bold text-syntara-cyan mb-1">-60%</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wider">tiempo de gestión</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-syntara-cyan mb-1">15</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wider">sucursales integradas</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-syntara-cyan mb-1">4.9★</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wider">satisfacción</div>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <Link 
+              href="/casos/sistema-restaurante" 
+              className="inline-flex items-center px-6 py-3 rounded-lg bg-black border border-white/10 text-white hover:bg-white/5 transition-colors group"
+            >
+              Ver Caso Completo
+              <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
 
         </div>
+
+        {/* Case 02: E-commerce */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mt-32">
+          
+          {/* Left Column (Content) - Order 2 on mobile, Order 1 on desktop */}
+          <div className="order-2 lg:order-1">
+            {/* Category Tag */}
+            <div className="inline-block px-3 py-1 rounded-full border border-syntara-cyan/30 text-syntara-cyan text-xs font-medium tracking-wide mb-6 bg-syntara-cyan/5">
+              E-commerce • Retail
+            </div>
+
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+              Tienda Online Premium
+            </h3>
+            
+            <p className="text-gray-400 leading-relaxed mb-8 text-lg">
+              Creamos una experiencia de compra excepcional con diseño personalizado, integración de pagos múltiples y sistema de recomendaciones inteligente. La plataforma logró aumentar significativamente las conversiones y el ticket promedio de compra.
+            </p>
+
+            {/* Tech Stack */}
+            <div className="flex flex-wrap gap-2 mb-8">
+              {['Next.js', 'Stripe', 'MongoDB', 'Vercel'].map((tech) => (
+                <span key={tech} className="px-3 py-1 rounded-md border border-white/10 text-gray-400 text-xs bg-white/5">
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            {/* Results Grid */}
+            <div className="grid grid-cols-2 gap-x-4 gap-y-8 mb-10 border-t border-white/10 pt-8">
+              <div>
+                <div className="text-3xl font-bold text-syntara-cyan mb-1">+250%</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wider">conversiones</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-syntara-cyan mb-1">+85%</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wider">ticket promedio</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-syntara-cyan mb-1">50K</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wider">usuarios activos</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-syntara-cyan mb-1">2.1s</div>
+                <div className="text-xs text-gray-500 uppercase tracking-wider">tiempo de carga</div>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <Link 
+              href="/casos/ecommerce-retail" 
+              className="inline-flex items-center px-6 py-3 rounded-lg bg-black border border-white/10 text-white hover:bg-white/5 transition-colors group"
+            >
+              Ver Caso Completo
+              <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+
+          {/* Right Column (Image) - Order 1 on mobile, Order 2 on desktop */}
+          <div className="relative group order-1 lg:order-2">
+            <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(0,229,255,0.1)] group-hover:shadow-[0_0_50px_rgba(0,229,255,0.2)] transition-shadow duration-500">
+              <div className="aspect-[4/3] relative">
+                <Image 
+                  src="/images/dashboard.png" 
+                  alt="Plataforma de E-commerce Premium" 
+                  fill 
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              </div>
+            </div>
+            
+            {/* Floating Badge '02' */}
+            <div className="absolute -top-6 -left-6 w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 to-syntara-cyan flex items-center justify-center shadow-lg z-20 border-4 border-black">
+              <span className="text-white text-xl font-bold">02</span>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
   )
