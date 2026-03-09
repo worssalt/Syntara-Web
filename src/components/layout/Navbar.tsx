@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -9,6 +10,7 @@ import { Logo } from "@/components/layout/Logo"
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#030303]/60 backdrop-blur-md border-b border-white/5">
@@ -25,15 +27,19 @@ export function Navbar() {
             { name: "Servicios", href: "/servicios-web" },
             { name: "Sistemas", href: "/sistemas-medida" },
             { name: "Nosotros", href: "/nosotros" },
-          ].map((link) => (
-            <Link 
-              key={link.href} 
-              href={link.href} 
-              className="text-sm font-medium text-gray-400 hover:text-syntara-cyan transition-colors duration-300 tracking-wide"
-            >
-              {link.name}
-            </Link>
-          ))}
+          ].map((link) => {
+            const isActive = pathname === link.href
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`relative text-sm font-medium transition-colors duration-300 tracking-wide group ${isActive ? "text-syntara-cyan" : "text-gray-400 hover:text-syntara-cyan"}`}
+              >
+                {link.name}
+                <span className={`absolute -bottom-1 left-0 h-px bg-syntara-cyan transition-all duration-300 ${isActive ? "w-full" : "w-0 group-hover:w-full"}`} />
+              </Link>
+            )
+          })}
         </div>
 
         {/* Right Actions */}
@@ -90,10 +96,24 @@ export function Navbar() {
             className="md:hidden bg-[#030303]/95 border-t border-white/5 overflow-hidden"
           >
             <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
-              <Link href="/" onClick={() => setOpen(false)} className="text-lg text-gray-300 hover:text-cyan-400 transition-colors">Inicio</Link>
-              <Link href="/servicios-web" onClick={() => setOpen(false)} className="text-lg text-gray-300 hover:text-cyan-400 transition-colors">Servicios</Link>
-              <Link href="/sistemas-medida" onClick={() => setOpen(false)} className="text-lg text-gray-300 hover:text-cyan-400 transition-colors">Sistemas</Link>
-              <Link href="/nosotros" onClick={() => setOpen(false)} className="text-lg text-gray-300 hover:text-cyan-400 transition-colors">Nosotros</Link>
+              {[
+                { name: "Inicio", href: "/" },
+                { name: "Servicios", href: "/servicios-web" },
+                { name: "Sistemas", href: "/sistemas-medida" },
+                { name: "Nosotros", href: "/nosotros" },
+              ].map((link) => {
+                const isActive = pathname === link.href
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={`text-lg font-medium transition-colors border-l-2 pl-3 ${isActive ? "text-syntara-cyan border-syntara-cyan" : "text-gray-300 border-transparent hover:text-cyan-400 hover:border-cyan-400/50"}`}
+                  >
+                    {link.name}
+                  </Link>
+                )
+              })}
               <Link href="/contacto" onClick={() => setOpen(false)} className="mt-4">
                 <Button className="w-full bg-cyan-900/40 border border-cyan-500/50 text-cyan-50 hover:bg-cyan-800/50 hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-all">
                   Contacto

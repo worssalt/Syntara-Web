@@ -342,12 +342,23 @@ export function RestaurantSystemContent() {
                   </AnimatePresence>
                 </div>
                 
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                {/* Slide indicator dots */}
+                <div className="flex items-center gap-2 mb-4">
+                  {features.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActiveIndex(i)}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${i === activeIndex ? "w-6 bg-primary" : "w-1.5 bg-white/20 hover:bg-white/40"}`}
+                      aria-label={`Ir a imagen ${i + 1}`}
+                    />
+                  ))}
+                  <span className="ml-auto text-xs text-white/40 font-mono">
+                    {activeIndex! + 1} / {features.length}
+                  </span>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                   {features[activeIndex].title}
                 </h3>
-                <p className="text-sm text-white/60 mb-4">
-                  {activeIndex! + 1} / {features.length}
-                </p>
                 
                 <div className="text-gray-300 text-base md:text-lg leading-relaxed whitespace-pre-line">
                   {features[activeIndex].description}

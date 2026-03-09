@@ -32,7 +32,7 @@ export function ServiciosWebContent() {
        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00e5ff05_1px,transparent_1px),linear-gradient(to_bottom,#00e5ff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:linear-gradient(to_bottom,transparent_0%,white_20%,white_80%,transparent_100%)] pointer-events-none -z-20"></div>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 z-10">
+      <section className="relative pt-20 md:pt-32 pb-20 z-10">
         <div className="absolute top-20 left-1/3 w-[600px] h-[600px] bg-syntara-cyan/15 blur-[160px] pointer-events-none -z-10 rounded-full"></div>
         <div className="container px-6 mx-auto relative z-10">
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">

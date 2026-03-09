@@ -42,7 +42,7 @@ export function SistemasMedidaContent() {
       </section>
 
       {/* Secure & Scalable Architecture Section */}
-      <section className="relative w-full overflow-hidden py-24 bg-[#030712]">
+      <section className="relative w-full overflow-hidden py-16 md:py-24 bg-[#030712]">
         {/* Ambient Lights */}
         <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-syntara-cyan/10 blur-[180px] rounded-full pointer-events-none -z-10" />
         <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-syntara-green/10 blur-[180px] rounded-full pointer-events-none -z-10" />

@@ -14,7 +14,7 @@ export function SystemMonitor() {
       <div className="container px-6 mx-auto relative z-10">
         
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
             Sistemas que Piensan por tu Negocio
           </h2>
@@ -24,7 +24,7 @@ export function SystemMonitor() {
         </div>
 
         {/* Central Visual Dashboard - 3D Rotating Hologram */}
-        <div className="relative w-full max-w-2xl lg:max-w-4xl mx-auto mb-16 mt-12 z-20 perspective-[2000px] overflow-hidden md:overflow-visible px-4 md:px-0">
+        <div className="relative w-full max-w-2xl lg:max-w-4xl mx-auto mb-8 md:mb-16 mt-2 md:mt-12 z-20 perspective-[2000px] overflow-hidden md:overflow-visible px-4 md:px-0">
           
           {/* Rotated Image Container */}
           <div className="transform-style-3d transition-transform duration-500" style={{ transform: 'perspective(1200px) rotateY(-15deg)' }}>
@@ -50,7 +50,10 @@ export function SystemMonitor() {
           <div className="hidden sm:block absolute left-2 bottom-0 scale-75 origin-bottom-left md:left-[-2rem] lg:left-[-4rem] md:bottom-8 md:scale-100 z-30 bg-[#030812]/70 backdrop-blur-xl rounded-xl p-5 border border-white/10 shadow-[0_0_60px_rgba(0,229,255,0.2)] animate-bounce-subtle w-64">
             <div className="flex justify-between items-start mb-2">
               <span className="text-sm text-gray-400 font-medium">Usuarios Activos</span>
-              <Users className="w-5 h-5 text-syntara-cyan" />
+              <div className="flex items-center gap-1.5">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-syntara-cyan/70 bg-syntara-cyan/10 border border-syntara-cyan/20 rounded px-1.5 py-0.5">Demo</span>
+                <Users className="w-5 h-5 text-syntara-cyan" />
+              </div>
             </div>
             <div className="text-3xl font-bold text-white mb-3">1,284</div>
             {/* Simulated Bar Chart */}
@@ -66,7 +69,10 @@ export function SystemMonitor() {
 
           {/* Floating Card Right: Sales Today */}
           <div className="hidden sm:block absolute right-2 top-0 scale-75 origin-top-right md:right-[-2rem] lg:right-[-4rem] md:top-8 md:scale-100 z-30 bg-[#030812]/70 backdrop-blur-xl rounded-xl p-5 border border-white/10 shadow-[0_0_0px_rgba(57,255,20,0.2)] animate-bounce-subtle w-60">
-            <div className="text-sm text-gray-400 font-medium mb-1">Ventas Hoy</div>
+            <div className="flex justify-between items-start mb-1">
+              <div className="text-sm text-gray-400 font-medium">Ventas Hoy</div>
+              <span className="text-[10px] font-bold uppercase tracking-wider text-syntara-cyan/70 bg-syntara-cyan/10 border border-syntara-cyan/20 rounded px-1.5 py-0.5">Demo</span>
+            </div>
             <div className="text-3xl font-bold text-white mb-3">$24,580</div>
             <div className="flex items-center gap-1 bg-[#39FF14]/10 text-[#39FF14] text-xs font-bold px-2 py-1 rounded-md w-fit">
               <TrendingUp className="w-3.5 h-3.5" />
