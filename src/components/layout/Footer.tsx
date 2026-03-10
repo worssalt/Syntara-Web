@@ -39,19 +39,19 @@ export function Footer() {
           <h3 className="text-white font-bold mb-6 text-lg">Síguenos</h3>
           <ul className="flex flex-col gap-4">
             <li>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-gray-400 hover:text-syntara-cyan transition-colors w-fit">
+              <a href="https://linkedin.com/company/syntarabiz" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-gray-400 hover:text-syntara-cyan transition-colors w-fit">
                 <Linkedin className="w-5 h-5" />
                 <span>LinkedIn</span>
               </a>
             </li>
             <li>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-gray-400 hover:text-syntara-cyan transition-colors w-fit">
+              <a href="https://instagram.com/syntara.biz" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-gray-400 hover:text-syntara-cyan transition-colors w-fit">
                 <Instagram className="w-5 h-5" />
                 <span>Instagram</span>
               </a>
             </li>
             <li>
-              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-gray-400 hover:text-syntara-cyan transition-colors w-fit">
+              <a href="https://wa.me/51970216616?text=Hola%20Syntara%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-gray-400 hover:text-syntara-cyan transition-colors w-fit">
                 <svg 
                   viewBox="0 0 24 24" 
                   fill="none" 
