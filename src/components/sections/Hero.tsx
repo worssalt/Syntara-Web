@@ -5,7 +5,7 @@ import { ArrowRight, BarChart3, Rocket } from 'lucide-react'
 
 export function Hero() {
   return (
-    <section className="relative w-full overflow-hidden py-16 md:py-24 bg-[#030712]">
+    <section className="relative w-full overflow-hidden py-1 md:py-24 bg-[#030712]">
       {/* Luces de Fondo */}
       <div className="absolute top-[-5%] left-[-10%] w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-syntara-cyan/20 blur-[120px] md:blur-[180px] pointer-events-none z-0 rounded-full transition-all duration-700"></div>
       <div className="absolute bottom-[-5%] right-[-5%] w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-syntara-green/15 blur-[120px] md:blur-[160px] pointer-events-none z-0 rounded-full transition-all duration-700"></div>
