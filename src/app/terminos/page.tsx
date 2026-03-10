@@ -3,6 +3,18 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Términos de Uso | SYNTARA",
   description: "Términos y condiciones de uso del sitio web de SYNTARA.",
+  robots: { index: false, follow: false },
+  alternates: {
+    canonical: "https://syntara.biz/terminos",
+  },
+  openGraph: {
+    title: "Términos de Uso | SYNTARA",
+    description: "Términos y condiciones de uso del sitio web de SYNTARA.",
+    url: "https://syntara.biz/terminos",
+    siteName: "SYNTARA",
+    type: "website",
+    locale: "es_PE",
+  },
 }
 
 export default function TerminosPage() {

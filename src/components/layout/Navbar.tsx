@@ -46,13 +46,13 @@ export function Navbar() {
         <div className="flex items-center gap-4 z-20">
           {/* Social Icons (Desktop) */}
           <div className="hidden md:flex items-center gap-2 md:gap-4 border-r border-white/10 pr-6 mr-2">
-            <a href="https://linkedin.com/company/syntarabiz" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-syntara-cyan hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.8)] transition-all duration-300">
+            <a href="https://linkedin.com/company/syntarabiz" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en LinkedIn" className="text-gray-400 hover:text-syntara-cyan hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.8)] transition-all duration-300">
               <Linkedin className="w-5 h-5" />
             </a>
-            <a href="https://instagram.com/syntara.biz" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-syntara-cyan hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.8)] transition-all duration-300">
+            <a href="https://instagram.com/syntara.biz" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram" className="text-gray-400 hover:text-syntara-cyan hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.8)] transition-all duration-300">
               <Instagram className="w-5 h-5" />
             </a>
-            <a href="https://wa.me/51970216616?text=Hola%20Syntara%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-syntara-cyan hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.8)] transition-all duration-300">
+            <a href="https://wa.me/51970216616?text=Hola%20Syntara%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp" className="text-gray-400 hover:text-syntara-cyan hover:drop-shadow-[0_0_8px_rgba(0,229,255,0.8)] transition-all duration-300">
               <svg 
                 viewBox="0 0 24 24" 
                 fill="currentColor" 

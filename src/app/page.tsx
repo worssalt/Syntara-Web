@@ -1,5 +1,28 @@
+import type { Metadata } from "next"
 import { Hero } from '@/components/sections/Hero'
 import { Features } from '@/components/sections/Features'
+
+export const metadata: Metadata = {
+  title: "SYNTARA | Desarrollo Web, E-commerce y Sistemas a Medida",
+  description: "Agencia digital para emprendedores y PYMEs: páginas web, e-commerce y sistemas personalizados que venden. Resultados medibles, soporte accesible.",
+  alternates: {
+    canonical: "https://syntara.biz",
+  },
+  openGraph: {
+    title: "SYNTARA | Desarrollo Web, E-commerce y Sistemas a Medida",
+    description: "Agencia digital para emprendedores y PYMEs: páginas web, e-commerce y sistemas personalizados que venden.",
+    url: "https://syntara.biz",
+    siteName: "SYNTARA",
+    type: "website",
+    locale: "es_PE",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SYNTARA | Desarrollo Web, E-commerce y Sistemas a Medida",
+    description: "Agencia digital para emprendedores y PYMEs: páginas web, e-commerce y sistemas personalizados que venden.",
+  },
+}
+
 import { CaseStudy } from '@/components/sections/CaseStudy'
 import { SystemMonitor } from '@/components/sections/SystemMonitor'
 import { Testimonials } from '@/components/sections/Testimonials'

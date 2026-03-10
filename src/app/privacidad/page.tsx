@@ -3,6 +3,18 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Política de Privacidad | SYNTARA",
   description: "Política de privacidad de SYNTARA. Cómo recopilamos, usamos y protegemos tus datos personales.",
+  robots: { index: false, follow: false },
+  alternates: {
+    canonical: "https://syntara.biz/privacidad",
+  },
+  openGraph: {
+    title: "Política de Privacidad | SYNTARA",
+    description: "Política de privacidad de SYNTARA. Cómo recopilamos, usamos y protegemos tus datos personales.",
+    url: "https://syntara.biz/privacidad",
+    siteName: "SYNTARA",
+    type: "website",
+    locale: "es_PE",
+  },
 }
 
 export default function PrivacidadPage() {

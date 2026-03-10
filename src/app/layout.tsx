@@ -5,16 +5,33 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
   title: "SYNTARA | Productos digitales y servicios",
   description: "Agencia para emprendedores y PYMEs: sitios, apps y productos digitales que venden. Desarrollo rápido y soporte accesible.",
+  keywords: ["desarrollo web", "e-commerce", "sistemas a medida", "agencia digital", "PYMEs", "emprendedores", "Perú", "SYNTARA"],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://syntara.biz",
+  },
   openGraph: {
     siteName: "SYNTARA",
     type: "website",
+    url: "https://syntara.biz",
     title: "SYNTARA | Productos digitales y servicios",
     description: "Sitios, apps y productos digitales para emprendedores y PYMEs.",
+    locale: "es_PE",
   },
   twitter: {
     card: "summary_large_image",
@@ -64,6 +81,28 @@ export default function RootLayout({
           </>
         )}
 
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "SYNTARA",
+              url: "https://syntara.biz",
+              logo: "https://syntara.biz/favicon-96x96.png",
+              sameAs: [
+                "https://linkedin.com/company/syntarabiz",
+                "https://instagram.com/syntara.biz",
+              ],
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+51-970-216-616",
+                contactType: "customer service",
+                availableLanguage: "Spanish",
+              },
+            }),
+          }}
+        />
         <Navbar />
         <main className="flex-1" style={{ paddingTop: "calc(5rem + env(safe-area-inset-top))" }}>
           {children}
